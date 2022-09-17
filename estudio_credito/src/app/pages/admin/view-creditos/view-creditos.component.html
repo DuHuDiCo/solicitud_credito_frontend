@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <h5>Solicitudes Creditos Creadas</h5>
+                <hr>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Productos(can)</th>
+                                    <th>Valor Solicitud</th>
+                                    <th>Coutas</th>
+                                    <th>Link</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let s of solicitudes; let i = index;">
+                                    <td>{{i+1}}</td>
+                                    <td>{{s.ventas.length}}</td>
+                                    <td>{{valores_totales[i]}}</td>
+                                    <td>{{cuotas[i]}}</td>
+                                    <td><a href={{links[i]}}>{{links[i]}}</a></td>
+                                    <td><button class="btn btn-danger eli"><i class="fas fa-trash"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

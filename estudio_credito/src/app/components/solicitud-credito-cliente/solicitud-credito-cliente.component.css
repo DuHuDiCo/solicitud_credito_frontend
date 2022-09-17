@@ -1,0 +1,17 @@
+.nav{
+    height: 100px;
+}
+
+.group{
+    color: black;
+    background-color: white;
+    border-color: #960010;
+
+}
+
+
+
+.group:hover{
+    background-color: #960010;
+    border-color: #960010;
+}

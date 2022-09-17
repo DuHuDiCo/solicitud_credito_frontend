@@ -1,0 +1,16 @@
+.navbar{
+    height: 150px;
+    background-color: white;
+    border-top: 2px solid #960010;
+    border-left: 2px solid #960010;
+    
+}
+
+.fas{
+    color: #960010;
+    
+}
+
+li a{
+    color: black;
+}

@@ -1,0 +1,28 @@
+.check:checked{
+    background-color: #960010;
+    border-color: #960010;
+    
+}
+
+.fot{
+    background-color: #960010;
+    border-color: #960010;
+}
+
+.fot:hover{
+    background-color: #992a35;
+    border-color: #992a35;
+}
+
+.tdp{
+    color: #960010;
+}
+.conti{
+    background-color: #960010;
+    border-color: #960010;
+}
+
+.conti:hover{
+    background-color: #992a35;
+    border-color: #992a35;
+}

@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-10 col-sm-10 col-xs-10 offset-md-1 shadow-sm  mb-5 bg-body rounded border border-1 p-3">
+        <h5>Documentos:</h5>
+        <br>
+        <form action="" class="row g-3">
+            <hr>
+            <div class="col-md-12">
+                <label for="" class="form-label">Cedula Ciudadania: </label>
+                <input type="file" class="form-control" capture="camera">
+                <div id="emailHelp" class="form-text">
+                    <p>Por favor subir la fotocopia de la cedula ciudadania.
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="" class="form-label">Foto: </label>
+                <div class="col-md-3">
+                    <a (click)="activarSubirFoto()" href="https://photogramio.com/es/webcam" target="_blank"
+                        class="btn btn-primary form-control fot" id="click">Tomar Foto</a>
+                </div>
+                <div id="emailHelp" class="form-text">
+                    <p>Para tomarse la foto será redireccionado a https://photogramio.com/es/webcam
+                        alli se puede tomar la foto y descargar el archivo para ser subido</p>
+                </div>
+                
+            </div>
+            <div class="col-md-12 ">
+                <div class="form-check form-switch mt-3 border border-1 bg-light ">
+                    <input class="form-check-input check" type="checkbox" id="">
+                    <p>Autorizo expresamente a GMJ HOGAR S.A.S. NIT. 901.056.810-9. Para que la información suministrada
+                        en el presente documento,
+                        que tiene carácter estrictamente personal y confidencial, sea consultada o verificada con
+                        terceras personas, incluyendo
+                        los bancos o bases de datos; igualmente para que la misma sea usada y puesta en circulación con
+                        fines únicamente comerciales.
+                        También autorizo expresamente para que encaso de incumplimiento de la(s) obligación(es), sea
+                        reportado al
+                        Banco de Datos de Fenalco(Procredito) o a cualquier otro.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-12 ">
+                <div class="form-check form-switch mt-3 border border-1 bg-light">
+                    <input class="form-check-input check" type="checkbox" id="">
+                    <p>Autorizo el <a href="" class="tdp">Uso y Tratamiento de Datos Personales</a>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-5 offset-md-8 col-sm-3  offset-sm-9">
+                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-personales'" class="btn btn-primary conti me-2">Regresar</button>
+                    <button  class="btn btn-primary conti">Enviar Solicitud Credito</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

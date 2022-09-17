@@ -1,0 +1,30 @@
+._btn{
+    width: 150px;
+    background-color: #960010;
+    color: white;
+    padding: 7px;
+    border-radius: 7px;
+    border: none;
+}
+
+._btn:hover{
+    color: white;
+    background-color: #dd6d78;
+    
+}
+
+.soli{
+    margin-left: 50px;
+    margin-top: 10px;
+    background-color: #960010;
+    border: none;
+    padding: 10px;
+}
+
+.soli:hover{
+    color: white;
+    background-color: #dd6d78;
+    
+}
+
+

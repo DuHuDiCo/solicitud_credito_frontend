@@ -1,0 +1,58 @@
+<div class="bootstrap-wrapper ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-xs-3 col-sm-3 ">
+
+                <div
+                    class="d-flex flex-column flex-shrink-0  p-3 bg-white side shadow p-3 mb-5 bg-body rounded d-none d-sm-none d-md-block  ">
+
+                    <ul class="nav nav-pills flex-column mb-auto ">
+                        <li class="nav-item mb-2">
+                            <a routerLink="/admin" class="nav-link " aria-current="page">
+                                <svg class="bi me-2" width="16" height="16">
+
+                                </svg>
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a routerLink="/admin/view-solicitudes" class="nav-link ">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#speedometer2" />
+                                </svg>
+                                Creditos
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a routerLink="/admin/solicitud" class="nav-link ">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#table" />
+                                </svg>
+                                Crear Solicitud Credito
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="nav-link ">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#grid" />
+                                </svg>
+                                Usuarios
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="nav-link ">
+                                <svg class="bi me-2" width="16" height="16">
+                                    <use xlink:href="#people-circle" />
+                                </svg>
+                                Customers
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <a (click)="logout()" class="btn btn-lg"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

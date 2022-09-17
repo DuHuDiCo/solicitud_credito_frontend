@@ -1,0 +1,63 @@
+
+
+<div class="col-md-12">
+    <nav class="navbar navbar-expand-lg shadow p-3 mb-5 bg-body rounded  nav">
+        <div class="container-fluid">
+
+            <a><img src="../assets/logo.svg" alt="" srcset=""></a>
+
+
+        </div>
+
+    </nav>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10 col-xs-10 col-sm-10 offset-md-1 ">
+
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <h4 class="text-center">Solicitud de Credito</h4>
+                <hr>
+                <div class="card-body">
+                    <p><b> A tener en Cuenta:
+                        </b>
+                    </p>
+                    <ul>
+                        <li>Llenar Todos los Campos del Formulario</li>
+                        <li>Todos los Datos Deben Ser Veraces</li>
+                        <li>Debe Aceptar el Aviso de Privacidad y Autorizacion General para el Tratamiento de Datos
+                            Personales </li>
+                        <li>Debe Aceptar la Autorizacion de Consulta a Centrales de Riesgo</li>
+                        <li>Se requerira tomar una foto para validar identidad  en Centrales de Riesgo</li>
+
+                    </ul>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="table-responsive">
+                                <div class="btn-group text-center shadow  mb-5 bg-body rounded" role="group">
+                                    <button  [routerLink]="'/solicitud-credito/'+solicitudId+'/comprador'" routerLinkActive="active"
+                                        class="btn btn-primary group">Comprador</button>
+                                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/codeudor'" routerLinkActive="active"
+                                        class="btn btn-primary group">Codeudor</button>
+                                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-comerciales'" routerLinkActive="active"
+                                        class="btn btn-primary group">Referencias Comerciales</button>
+                                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-personales'" routerLinkActive="active"
+                                        class="btn btn-primary group">Referencias Personales</button>
+                                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/docs'" routerLinkActive="active"
+                                        class="btn btn-primary group">Documentos</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <router-outlet></router-outlet>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

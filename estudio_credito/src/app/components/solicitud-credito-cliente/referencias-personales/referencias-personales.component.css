@@ -1,0 +1,9 @@
+.conti{
+    background-color: #960010;
+    border-color: #960010;
+}
+
+.conti:hover{
+    background-color: #992a35;
+    border-color: #992a35;
+}

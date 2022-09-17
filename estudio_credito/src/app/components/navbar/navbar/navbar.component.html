@@ -1,0 +1,88 @@
+<div class="col-md-12">
+    <nav class="navbar navbar-expand-lg shadow p-3 mb-5 bg-body rounded  ">
+        <div class="container-fluid">
+
+            <a><img src="../assets/logo.svg"  alt="" srcset=""></a>
+
+            <a class="btn border border-1 d-block d-sm-block d-md-none" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                aria-controls="offcanvasExample">
+                <span class="navbar-toggler-icon"></span>
+            </a>
+            <form class="d-flex">
+                <a (click)="logout()" class="btn btn-lg d-none d-sm-none d-md-block"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+            </form>
+        </div>
+
+    </nav>
+
+
+
+</div>
+<div class="d-block d-sm-block d-md-none">
+
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+
+                        <div class="d-flex flex-column flex-shrink-0  p-3 bg-white side shadow p-3 mb-5 bg-body rounded  collapse"
+                            id="navbar1">
+
+                            <ul class="nav nav-pills flex-column mb-auto ">
+                                <li class="nav-item mb-2">
+                                    <a routerLink="/admin" class="nav-link " aria-current="page">
+                                        <svg class="bi me-2" width="16" height="16">
+
+                                        </svg>
+                                        Inicio
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="nav-link ">
+                                        <svg class="bi me-2" width="16" height="16">
+                                            <use xlink:href="#speedometer2" />
+                                        </svg>
+                                        Creditos
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="/admin/solicitud" class="nav-link ">
+                                        <svg class="bi me-2" width="16" height="16">
+                                            <use xlink:href="#table" />
+                                        </svg>
+                                        Crear Solicitud Credito
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="nav-link ">
+                                        <svg class="bi me-2" width="16" height="16">
+                                            <use xlink:href="#grid" />
+                                        </svg>
+                                        Usuarios
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" class="nav-link ">
+                                        <svg class="bi me-2" width="16" height="16">
+                                            <use xlink:href="#people-circle" />
+                                        </svg>
+                                        Customers
+                                    </a>
+                                </li>
+                            </ul>
+                            <hr>
+                            <a (click)="logout()" class="btn btn-lg"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
