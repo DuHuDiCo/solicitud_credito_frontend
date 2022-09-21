@@ -2,119 +2,144 @@
     <div class="col-md-10 col-sm-10 col-xs-10 offset-md-1 shadow-sm  mb-5 bg-body rounded border border-1 p-3">
         <h5>Datos del Codeudor:</h5>
         <br>
-        <form action="" class="row g-3">
+        <form (ngSubmit)="guardarYContinuar()" class="row g-3 was-validated">
             <div class="col-md-4">
                 <label for="" class="form-label">Nombres: </label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="codeudor.nombres" name="nombres" class="form-control" required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Apellidos: </label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="codeudor.apellidos" name="apellidos" class="form-control"
+                    required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Cedula Ciudadania: </label>
-                <input type="number" class="form-control">
+                <input type="number" [(ngModel)]="codeudor.cedula" name="cedula" class="form-control" required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Estado Civil: </label>
-                <input type="text" class="form-control">
+                <select name="estado_civil" class="form-control" [(ngModel)]="codeudor.estado_civil" required="true">
+                    <option value="" selected>Seleccione:</option>
+                    <option value="soltero">Soltero</option>
+                    <option value="casado">Casado</option>
+                    <option value="divorciado">Divorciado</option>
+
+                </select>
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Direccion: </label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="codeudor.direccion" name="direccion" class="form-control"
+                    required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Celular: </label>
-                <input type="tel" class="form-control">
+                <input type="tel" [(ngModel)]="codeudor.celular" name="celular" class="form-control" required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Email: </label>
-                <input type="email" class="form-control">
+                <input type="email" [(ngModel)]="codeudor.email" name="email" class="form-control" required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Empresa donde Labora: </label>
-                <input type="tex" class="form-control">
+                <input type="text" [(ngModel)]="codeudor.empresa" name="empresa" class="form-control" required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Direccion Empresa: </label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="codeudor.direccion_empresa" name="direccion_empresa" required="false"
+                    class="form-control">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Cargo: </label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="codeudor.cargo" name="cargo" class="form-control" required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Tiempo en el Cargo (meses): </label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="codeudor.tiempo_servicio" name="tiempo_servicio" class="form-control"
+                    required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Salario (mensual): </label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" name="salario" [(ngModel)]="codeudor.salario" required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Otros ingresos (fuente): </label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="codeudor.otros_ingresos" name="otros_ingresos"
+                    required="false">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Valor Otros Ingresos (cantidad): </label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="codeudor.valor_otros_ingresos" required="false"
+                    name="valor_otros_ingresos">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Tipo de Vivienda</label>
-                <select name="" id="" class="form-control">
-                    <option value="">Seleccione</option>
+                <select name="" id="" class="form-control" [(ngModel)]="codeudor.tipo_casa" name="tipo_casa"
+                    required="true">
+                    <option value="" selected>Seleccione</option>
                     <option value="propia">Propia</option>
                     <option value="arriendo">Arriendo</option>
                 </select>
-                
+
             </div>
-            <div *ngIf=""></div>
-            <div class="col-md-4">
+
+            <div class="col-md-4" *ngIf="codeudor.tipo_casa == 'arriendo'">
                 <label for="" class="form-label">Valor Alquiler</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" [(ngModel)]="codeudor.valor_alquiler" name="valor_alquiler"
+                    required="true">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" *ngIf="codeudor.tipo_casa == 'arriendo'">
                 <label for="" class="form-label">Nombre Propietario</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="codeudor.propietario" name="propietario"
+                    required="true">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4" *ngIf="codeudor.tipo_casa == 'arriendo'">
                 <label for="" class="form-label">Telefono</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" [(ngModel)]="codeudor.telefono_casa" name="telefono_casa"
+                    required="true">
             </div>
-            <div *ngIf=""></div>
-            <div class="col-md-3">
+
+
+            <div class="col-md-3" *ngIf="codeudor.estado_civil == 'casado'">
                 <label for="" class="form-label">Nombre Conyuge</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="codeudor.nombre_conyuge" name="nombre_conyuge"
+                    required="true">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" *ngIf="codeudor.estado_civil == 'casado'">
                 <label for="" class="form-label">Empresa donde Trabaja</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="codeudor.trabajo_conyuge" name="trabajo_conyuge"
+                    required="true">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" *ngIf="codeudor.estado_civil == 'casado'">
                 <label for="" class="form-label">Direccion</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="codeudor.direccion_trabajo_conyuge" required="true"
+                    name="direccion_trabajo_conyuge">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" *ngIf="codeudor.estado_civil == 'casado'">
                 <label for="" class="form-label">Telefono</label>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" [(ngModel)]="codeudor.telefono_trabajo_conyuge"
+                    required="true" name="telefono_trabajo_conyuge">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Nombre Pariente</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="codeudor.nombre_pariente" name="nombre_pariente"
+                    required="true">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Direccion</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" [(ngModel)]="codeudor.direccion_pariente" required="true"
+                    name="direccion_pariente">
             </div>
             <div class="col-md-4">
                 <label for="" class="form-label">Telefono</label>
-                <input type="tel" class="form-control">
+                <input type="tel" class="form-control" [(ngModel)]="codeudor.telefono_pariente" name="telefono_pariente"
+                    required="true">
             </div>
             <hr>
             <div class="row">
-                <div class="col-md-6 offset-md-8 col-sm-3  offset-sm-9">
-                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/comprador'" class="btn btn-primary conti me-2">Regresar</button>
-                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-comerciales'" class="btn btn-primary conti">Guardar y Continuar</button>
+                <div class="col-md-5 offset-md-8 col-sm-3  offset-sm-9">
+                    <a (click)="goBack() "
+                        class="btn btn-primary conti me-2">Regresar</a>
+                    <button  class="btn btn-primary conti">Guardar y Continuar</button>
                 </div>
             </div>
         </form>

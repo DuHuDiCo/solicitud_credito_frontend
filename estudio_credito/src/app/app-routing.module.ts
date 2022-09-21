@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CameraComponent } from './components/camera/camera.component';
+
 import { LoginComponent } from './components/login/login.component';
 import { DatosCodeudorComponent } from './components/solicitud-credito-cliente/datos-codeudor/datos-codeudor.component';
 import { DatosCompradorComponent } from './components/solicitud-credito-cliente/datos-comprador/datos-comprador.component';
@@ -78,11 +78,7 @@ const routes: Routes = [
     ]
     
   },
-  {
-    path:'camera',
-    component:CameraComponent,
-    pathMatch: 'full'
-  }
+  
 ];
 
 @NgModule({

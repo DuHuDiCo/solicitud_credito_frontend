@@ -5,55 +5,101 @@
         <form action="" class="row g-3">
             <hr>
             <h5 class="text-center">Comprador</h5>
-            <h6>Referencia 1:</h6>
+            <h6>Referencias :</h6>
             <div class="col-md-6">
                 <label for="" class="form-label">Nombres(Empresa): </label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="referenciaComprador.nombre" name="nombre" class="form-control">
             </div>
-            
+
             <div class="col-md-6">
                 <label for="" class="form-label">Telefono: </label>
-                <input type="number" class="form-control">
+                <input type="number" [(ngModel)]="referenciaComprador.telefono" name="telefono" class="form-control">
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-5 offset-md-9">
+                    <button (click)="agregarReferenciaComer()" class="btn btn-primary conti">Agregar Refenecia</button>
+                </div>
             </div>
             <hr>
-            <h6>Referencia 2: </h6>
-            <div class="col-md-6">
-                <label for="" class="form-label">Nombres(Empresa): </label>
-                <input type="text" class="form-control">
+            <div class="row" #asTbl style="display: none;">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table" *ngIf="referenciasComercialesCliente.length > 0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Telefono</th>
+                                    <th>Borrar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let r of referenciasComercialesCliente">
+                                    <td>{{r.id}}</td>
+                                    <td>{{r.nombre}}</td>
+                                    <td>{{r.telefono}}</td>
+                                    <td><button (click)="eliminarItemCliente(r.id)" class="btn btn-primary conti"><i
+                                                class="fas fa-trash"></i></button></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
-            
-            <div class="col-md-6">
-                <label for="" class="form-label">Telefono: </label>
-                <input type="number" class="form-control">
-            </div>
-            <hr>
+            <hr>    
             <h5 class="text-center">Codeudor</h5>
-            <h6>Referencia 1:</h6>
+            <h6>Referencia :</h6>
             <div class="col-md-6">
                 <label for="" class="form-label">Nombres(Empresa): </label>
-                <input type="text" class="form-control">
+                <input type="text" [(ngModel)]="referenciaCodeudor.nombre" name="nombre" class="form-control">
             </div>
-            
+
             <div class="col-md-6">
-                <label for="" class="form-label">Telefono: </label>
-                <input type="number" class="form-control">
+                <label for=""   class="form-label">Telefono: </label>
+                <input type="number" class="form-control" [(ngModel)]="referenciaCodeudor.telefono" name="telefono">
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-5 offset-md-9">
+                    <button (click)="agregarReferenciaComerCodeu()" class="btn btn-primary conti">Agregar Refenecia</button>
+                </div>
             </div>
             <hr>
-            <h6>Referencia 2: </h6>
-            <div class="col-md-6">
-                <label for="" class="form-label">Nombres(Empresa): </label>
-                <input type="text" class="form-control">
-            </div>
-            
-            <div class="col-md-6">
-                <label for="" class="form-label">Telefono: </label>
-                <input type="number" class="form-control">
+            <div class="row" #asTbl2 style="display: none;">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table" *ngIf="referenciasComercialesCodeudor.length > 0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th>Telefono</th>
+                                    <th>Borrar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let r of referenciasComercialesCodeudor">
+                                    <td>{{r.id}}</td>
+                                    <td>{{r.nombre}}</td>
+                                    <td>{{r.telefono}}</td>
+                                    <td><button (click)="eliminarItemCodeudor(r.id)" class="btn btn-primary conti"><i
+                                                class="fas fa-trash"></i></button></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
             <hr>
             <div class="row">
                 <div class="col-md-5 offset-md-8 col-sm-3  offset-sm-9">
-                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/codeudor'" class="btn btn-primary conti me-2">Regresar</button>
-                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-personales'" class="btn btn-primary conti">Guardar y Continuar</button>
+                    <button  (click)="goBack()"
+                        class="btn btn-primary conti me-2">Regresar</button>
+                    <button (click)="guardarYContinuar()" 
+                        class="btn btn-primary conti">Guardar y Continuar</button>
                 </div>
             </div>
         </form>

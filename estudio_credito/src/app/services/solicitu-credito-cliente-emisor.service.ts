@@ -7,6 +7,8 @@ export class SolicituCreditoClienteEmisorService {
  
   solicitudId:any;
 
+  validButtoms:any;
+
   constructor() { }
 
   public tomarId(id:any){
@@ -15,5 +17,13 @@ export class SolicituCreditoClienteEmisorService {
 
   public getId(){
     return this.solicitudId;
+  }
+
+  public getvalidButtoms(){
+    return this.validButtoms;
+  }
+
+  public setvalidButtoms(dato:any){
+    this.validButtoms = dato;
   }
 }

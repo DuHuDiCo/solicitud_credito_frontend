@@ -26,6 +26,10 @@ import { ReferenciasComercialesComponent } from './components/solicitud-credito-
 import { ReferenciasPersonalesComponent } from './components/solicitud-credito-cliente/referencias-personales/referencias-personales.component';
 import { DocumentosComponent } from './components/solicitud-credito-cliente/documentos/documentos.component';
 import { WebcamModule } from '@cbdev/ngx-webcam';
+import { PhotoComponent } from './components/solicitud-credito-cliente/documentos/photo/photo.component';
+import { CedulaComponent } from './components/solicitud-credito-cliente/documentos/cedula/cedula.component';
+import { RespaldoCedulaComponent } from './components/solicitud-credito-cliente/documentos/cedula/respaldo-cedula/respaldo-cedula.component';
+
 
 
 
@@ -47,7 +51,9 @@ import { WebcamModule } from '@cbdev/ngx-webcam';
     ReferenciasComercialesComponent,
     ReferenciasPersonalesComponent,
     DocumentosComponent,
-    
+    PhotoComponent,
+    CedulaComponent,
+    RespaldoCedulaComponent    
    
   ],
   imports: [

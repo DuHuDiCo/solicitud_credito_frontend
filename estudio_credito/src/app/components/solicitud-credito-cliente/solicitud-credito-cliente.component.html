@@ -18,7 +18,7 @@
         <div class="col-md-10 col-xs-10 col-sm-10 offset-md-1 ">
 
             <div class="card shadow p-3 mb-5 bg-body rounded">
-                <h4 class="text-center">Solicitud de Credito</h4>
+                <h4 class="text-center">Solicitud de Crédito</h4>
                 <hr>
                 <div class="card-body">
                     <p><b> A tener en Cuenta:
@@ -38,16 +38,16 @@
                         <div class="col-md-8 offset-md-2">
                             <div class="table-responsive">
                                 <div class="btn-group text-center shadow  mb-5 bg-body rounded" role="group">
-                                    <button  [routerLink]="'/solicitud-credito/'+solicitudId+'/comprador'" routerLinkActive="active"
-                                        class="btn btn-primary group">Comprador</button>
-                                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/codeudor'" routerLinkActive="active"
-                                        class="btn btn-primary group">Codeudor</button>
-                                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-comerciales'" routerLinkActive="active"
+                                    <button  #comprador  (click)="validarCodeudor()" 
+                                         class="btn btn-primary group">Comprador</button>
+                                    <button  
+                                        class="btn btn-primary group" #codeudor >Codeudor</button>
+                                    <button  [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-comerciales'" routerLinkActive="active"
                                         class="btn btn-primary group">Referencias Comerciales</button>
                                     <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-personales'" routerLinkActive="active"
                                         class="btn btn-primary group">Referencias Personales</button>
-                                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/docs'" routerLinkActive="active"
-                                        class="btn btn-primary group">Documentos</button>
+                                    <button  [routerLink]="'/solicitud-credito/'+solicitudId+'/docs'" routerLinkActive="active"
+                                        class="btn btn-primary group" >Documentos</button>
                                 </div>
                             </div>
 

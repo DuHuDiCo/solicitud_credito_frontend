@@ -6,26 +6,39 @@
             <hr>
             <div class="col-md-12">
                 <label for="" class="form-label">Cedula Ciudadania: </label>
-                <input type="file" class="form-control" capture="camera">
-                <div id="emailHelp" class="form-text">
-                    <p>Por favor subir la fotocopia de la cedula ciudadania.
-                </div>
-            </div>
-            <div class="col-md-12">
-                <label for="" class="form-label">Foto: </label>
-                <div class="col-md-3">
-                    <a (click)="activarSubirFoto()" href="https://photogramio.com/es/webcam" target="_blank"
-                        class="btn btn-primary form-control fot" id="click">Tomar Foto</a>
-                </div>
-                <div id="emailHelp" class="form-text">
-                    <p>Para tomarse la foto será redireccionado a https://photogramio.com/es/webcam
-                        alli se puede tomar la foto y descargar el archivo para ser subido</p>
+                <input type="file" class="form-control d-block d-sm-block d-md-none" capture="camera">
+                <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
+                    <p>Por favor debes tomar una foto de la cedula ciudadania por el frente.
                 </div>
                 
+                <input type="file" class="form-control d-block d-sm-block d-md-none" capture="camera">
+                <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
+                    <p>Por favor debes tomar una foto de la cedula ciudadania por el Respaldo.
+                </div>
             </div>
+            
+            <div id="emailHelp" class="form-text d-none d-sm-none d-md-block">
+                <p>Por favor debes tomar una foto de la cedula ciudadania por los dos lados.
+            </div>
+            <div>
+               <app-cedula></app-cedula>
+            </div>
+            
+            <div class="col-md-12 d-block d-sm-block d-md-none">
+                <label for="" class="form-label">Foto: </label>
+                <input type="file" class="form-control" capture="camera">
+                <div id="emailHelp" class="form-text">
+                    <p>Por favor debes tomar una foto de tu rostro.
+                </div>
+            </div>
+            <label for="" class="form-label">Foto: </label>
+            <div id="emailHelp" class="form-text d-none d-sm-none d-md-block">
+                <p>Por favor debes tomar una foto de tu rostro, para verificar tu identidad.
+            </div>
+            <app-photo></app-photo>
             <div class="col-md-12 ">
                 <div class="form-check form-switch mt-3 border border-1 bg-light ">
-                    <input class="form-check-input check" type="checkbox" id="">
+                    <input [checked]="false" [(ngModel)]="dataCredito.autorizacion" name="autorizoDataCredito" class="form-check-input check" type="checkbox" id="">
                     <p>Autorizo expresamente a GMJ HOGAR S.A.S. NIT. 901.056.810-9. Para que la información suministrada
                         en el presente documento,
                         que tiene carácter estrictamente personal y confidencial, sea consultada o verificada con
@@ -39,8 +52,8 @@
                 </div>
             </div>
             <div class="col-md-12 ">
-                <div class="form-check form-switch mt-3 border border-1 bg-light">
-                    <input class="form-check-input check" type="checkbox" id="">
+                <div   class="form-check form-switch mt-3 border border-1 bg-light">
+                    <input [checked]="false" [(ngModel)]="datosPersonales.autorizacion" name="autorizoDatosPersonales" class="form-check-input check " type="checkbox" id="">
                     <p>Autorizo el <a href="" class="tdp">Uso y Tratamiento de Datos Personales</a>
                     </p>
                 </div>
@@ -48,8 +61,10 @@
             <hr>
             <div class="row">
                 <div class="col-md-5 offset-md-8 col-sm-3  offset-sm-9">
-                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-personales'" class="btn btn-primary conti me-2">Regresar</button>
-                    <button  class="btn btn-primary conti">Enviar Solicitud Credito</button>
+                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-personales'"
+                        class="btn btn-primary conti me-2">Regresar</button>
+                    <button *ngIf="valid" (click)="guardarSeccion()" class="btn btn-primary conti">Guardar Sección</button>
+                    <button *ngIf="!valid" (click)="enviarSolicitud()" class="btn btn-primary conti">Guardar Todo y Enviar</button>
                 </div>
             </div>
         </form>
