@@ -25,11 +25,10 @@ export class DocumentosComponent implements OnInit {
   }
 
   docs={
-    "frenteCedula":null,
-    "respaldoCedula":null,
-    "foto":null,
-    "dataCredito":null,
-    "datosPersonales":null
+    "dataCredito":false,
+    "datosPersonales":false,
+    "cedula_ciudadania":[{ "frente_cedula":'', "respaldo_cedula":''}],
+    "foto":{}
   }
 
   valid=true;
@@ -42,15 +41,22 @@ export class DocumentosComponent implements OnInit {
 
   public enviarSolicitud(){
     
-   
+    this.credito.guardarTodo();
+    
+    this.credito.enviarSolicitud().subscribe(
+      (data:any) => {
+        console.log(data);
+      },(error:any)=>{
+        console.log(error);
+      }
+    );
     
   }
 
   public guardarSeccion(){
     
-    let fecha = this.obtenerFechaActual();
-    this.dataCredito.fecha = String(fecha);
-    this.datosPersonales.fecha = String(fecha);
+    
+    
     if(this.dataCredito.autorizacion == false || this.datosPersonales.autorizacion == false ){
       this.toast.error({
         detail: "Error",
@@ -63,7 +69,7 @@ export class DocumentosComponent implements OnInit {
     }else{
       this.docs = this.credito.getDocs();
       console.log(this.docs);
-      if(this.docs.frenteCedula == null || this.docs.respaldoCedula == null || this.docs.foto == null){
+      if(this.docs.cedula_ciudadania.length == 0 || this.docs.cedula_ciudadania.length == 0 || this.docs.foto == null){
         this.toast.error({
           detail: "Error",
           summary: "Debes Tomar la foto de cedula y rostro",
@@ -80,10 +86,15 @@ export class DocumentosComponent implements OnInit {
   }
 
   public obtenerFechaActual(){
-    let date : Date = new Date();
-    return date;
+    let date = new Date();
+    let mes = date.getMonth() + 1;
+    let fecha = date.getFullYear()+'-'+mes+'-'+date.getDate() +' '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds();
+    
+    return fecha;
   }
 
+
+  
   
 
 }

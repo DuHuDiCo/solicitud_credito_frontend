@@ -16,6 +16,16 @@ export class SolicitudCreditoClienteComponent implements OnInit {
   @ViewChild('codeudor')
   btnCod!: ElementRef;
 
+  @ViewChild('comercial')
+  refCom!: ElementRef;
+
+  @ViewChild('personal')
+  refPer!: ElementRef;
+
+  @ViewChild('docs')
+  doc!: ElementRef;
+
+
   solicitudId = 0;
 
   validButons: any;
@@ -29,29 +39,112 @@ export class SolicitudCreditoClienteComponent implements OnInit {
   }
 
 
-  public validarCodeudor(){
+  public validarComprador(){
     var compra= this.credito.getCliente();
    
-    `var codeud = this.credito.getCodeudor();
-    var referenciasC = this.credito.getReferenciasComerciales();
-    var referenciasP = this.credito.getReferenciasPersonales();
-    var docs = this.credito.getDocs();`
 
     if(Object.keys(compra).length == 0){
-      const btn1 = this.btnCod.nativeElement;
+     
       
-      const btn2 = this.btnCom.nativeElement;
-      this.render2.setStyle(btn2, 'background-color', '#960010');
-      this.render2.setStyle(btn2, 'color', 'white');
+      
       this.router.navigate(['/solicitud-credito/'+this.solicitudId+'/comprador']);
 
     }else{
-      const btn2 = this.btnCom.nativeElement;
-      this.render2.setStyle(btn2, 'background-color', 'white');
-      this.render2.setStyle(btn2, 'color', 'black');
+      this.setStyleDeActive(this.btnCom);
+      
     }
    
   }
+
+  public validarCodeudor(){
+    var codeud = this.credito.getCodeudor();
+    if(Object.keys(codeud).length == 0){
+      this.toast.error({
+        detail: "Error",
+        summary: "Llene los datos",
+        position: "tr",
+        duration: 3500
+        
+      })
+    
+      
+    }else{
+      
+      this.router.navigate(['/solicitud-credito/'+this.solicitudId+'/codeudor']);
+      
+    }
+  }
+
+  public validarReferenciasC(){
+    var referenciasC = this.credito.getReferenciasComerciales();
+    if(Object.keys(referenciasC).length == 0){
+      this.toast.error({
+        detail: "Error",
+        summary: "Llene los datos",
+        position: "tr",
+        duration: 3500
+        
+      })
+       
+        
+    }else{
+     
+      this.router.navigate(['/solicitud-credito/'+this.solicitudId+'/referencias-comerciales']);
+    }
+  }
+
+  public validarReferenciasP(){
+    var referenciasP = this.credito.getReferenciasPersonales();
+    if(Object.keys(referenciasP).length == 0){
+      this.toast.error({
+        detail: "Error",
+        summary: "Llene los datos",
+        position: "tr",
+        duration: 3500
+        
+      })
+        
+        
+    }else{
+      
+      this.router.navigate(['/solicitud-credito/'+this.solicitudId+'/referencias-personales']);
+    }
+  }
+
+  public validarDocs(){
+    
+  
+    var docs = this.credito.getDocs();
+    
+    if(docs.cedula_ciudadania == null){
+      this.toast.error({
+        detail: "Error",
+        summary: "Llene los datos",
+        position: "tr",
+        duration: 3500
+        
+      })
+      
+      this.router.navigate(['/solicitud-credito/'+this.solicitudId+'/docs']);
+    }else{
+     
+      
+    }
+  }
+
+  public setStyleActive(bnt:any){
+    const btn2 = bnt.nativeElement;
+    this.render2.setStyle(btn2, 'background-color', '#960010');
+    this.render2.setStyle(btn2, 'color', 'white');
+  }
+
+  public setStyleDeActive(btn:any){
+    const btn2 = btn.nativeElement;
+    this.render2.setStyle(btn2, 'background-color', 'white');
+    this.render2.setStyle(btn2, 'color', 'black');
+  }
+
+
 
   
 

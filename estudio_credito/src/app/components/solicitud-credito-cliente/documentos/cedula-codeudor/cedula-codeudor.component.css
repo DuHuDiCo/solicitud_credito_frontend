@@ -1,0 +1,73 @@
+.check:checked{
+    background-color: #960010;
+    border-color: #960010;
+    
+}
+
+.fot{
+    background-color: #960010;
+    border-color: #960010;
+}
+
+.fot:hover{
+    background-color: #992a35;
+    border-color: #992a35;
+}
+
+.tdp{
+    color: #960010;
+}
+.conti{
+    background-color: #960010;
+    border-color: #960010;
+}
+
+.conti:hover{
+    background-color: #992a35;
+    border-color: #992a35;
+}
+
+.video{
+    
+    height: 500px;
+    width: 500px;
+    border: 1px solid #960010;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.active{
+    background-color: #960010;
+    border-color: #960010;
+}
+
+.active:hover{
+    background-color: #992a35;
+    border-color: #992a35;
+}
+
+.boxPhoto{
+    padding: 0px;
+    margin: 0px;
+}
+
+.capture{
+    background-color: #960010;
+    border-color: #960010;
+}
+
+.capture:hover{
+    background-color: #992a35;
+    border-color: #992a35;
+}
+
+
+.opt{
+    background-color: #960010;
+    border-color: #960010;
+}
+
+.opt:hover{
+    background-color: #992a35;
+    border-color: #992a35;
+}

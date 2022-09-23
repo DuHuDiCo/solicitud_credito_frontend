@@ -5,11 +5,11 @@ import { isPlatformBrowser } from '@angular/common';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-respaldo-cedula',
-  templateUrl: './respaldo-cedula.component.html',
-  styleUrls: ['./respaldo-cedula.component.css']
+  selector: 'app-cedula-codeudor',
+  templateUrl: './cedula-codeudor.component.html',
+  styleUrls: ['./cedula-codeudor.component.css']
 })
-export class RespaldoCedulaComponent implements OnInit {
+export class CedulaCodeudorComponent implements OnInit {
   @ViewChild('asVideo')
   asvideo!: ElementRef<HTMLVideoElement>;
   canva = true;
@@ -34,11 +34,9 @@ export class RespaldoCedulaComponent implements OnInit {
 
   deActivate = false;
 
-  respaldoCedula = {
-    cedula: ''
+  frenteCedula = {
+    frenteCedula: ''
   }
-
-  quien:any = "comprador";
 
 
   activeCamera = false;
@@ -110,13 +108,12 @@ export class RespaldoCedulaComponent implements OnInit {
 
   public guardarImagen() {
     var canva = this.foto.nativeElement;
-    this.respaldoCedula.cedula = canva.toDataURL();
-    
-    this.guardarFile(this.respaldoCedula.cedula, canva, this.quien);
-    
+    this.frenteCedula.frenteCedula = canva.toDataURL();
+
+    this.guardarFile(this.frenteCedula.frenteCedula, canva);
   }
 
-  public guardarFile(photo: any, canva:any, quien:any) {
+  public guardarFile(photo: any, canva:any) {
     Swal.fire({
       title: '¿Quieres Guardar la Foto?',
       showCancelButton: true,
@@ -132,9 +129,7 @@ export class RespaldoCedulaComponent implements OnInit {
         this.renderer2.setStyle(imagen, 'width', '200px');
         this.renderer2.setStyle(canva, 'display', 'none');
         this.canvasButtoms = false;
-       
-        this.solicitudCredito.guardarRespaldoCedula(photo, quien);
-        
+        this.solicitudCredito.guardarFrenteCedula(photo)
       }
     })
 
@@ -163,5 +158,6 @@ export class RespaldoCedulaComponent implements OnInit {
     this.canvasButtoms = false;
     this.deActivate = false;
   }
+
 
 }

@@ -18,10 +18,12 @@ export class AuthInterceptor implements HttpInterceptor {
     let authReques = request;
     const token = this.loginService.getToken();
     
+    
     if(token != null){
       authReques = authReques.clone({
         setHeaders:{Authorization: `Bearer ${token}`}
       })
+      console.log(authReques)
     }
 
     return next.handle(authReques);

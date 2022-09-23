@@ -3,13 +3,12 @@ import { CreditoService } from 'src/app/services/credito.service';
 import { SolicituCreditoClienteEmisorService } from 'src/app/services/solicitu-credito-cliente-emisor.service';
 import { isPlatformBrowser } from '@angular/common';
 import Swal from 'sweetalert2';
-
 @Component({
-  selector: 'app-respaldo-cedula',
-  templateUrl: './respaldo-cedula.component.html',
-  styleUrls: ['./respaldo-cedula.component.css']
+  selector: 'app-respaldo-cedula-codeudor',
+  templateUrl: './respaldo-cedula-codeudor.component.html',
+  styleUrls: ['./respaldo-cedula-codeudor.component.css']
 })
-export class RespaldoCedulaComponent implements OnInit {
+export class RespaldoCedulaCodeudorComponent implements OnInit {
   @ViewChild('asVideo')
   asvideo!: ElementRef<HTMLVideoElement>;
   canva = true;
@@ -38,7 +37,7 @@ export class RespaldoCedulaComponent implements OnInit {
     cedula: ''
   }
 
-  quien:any = "comprador";
+  quien:any = "codeudor";
 
 
   activeCamera = false;

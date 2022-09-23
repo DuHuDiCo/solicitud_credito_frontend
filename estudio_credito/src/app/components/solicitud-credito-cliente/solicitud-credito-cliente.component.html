@@ -38,15 +38,15 @@
                         <div class="col-md-8 offset-md-2">
                             <div class="table-responsive">
                                 <div class="btn-group text-center shadow  mb-5 bg-body rounded" role="group">
-                                    <button  #comprador  (click)="validarCodeudor()" 
+                                    <button  #comprador  (click)="validarComprador()" 
                                          class="btn btn-primary group">Comprador</button>
-                                    <button  
+                                    <button  (click)="validarCodeudor()" 
                                         class="btn btn-primary group" #codeudor >Codeudor</button>
-                                    <button  [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-comerciales'" routerLinkActive="active"
+                                    <button  (click)="validarReferenciasC()" 
                                         class="btn btn-primary group">Referencias Comerciales</button>
-                                    <button [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-personales'" routerLinkActive="active"
+                                    <button (click)="validarReferenciasP()" 
                                         class="btn btn-primary group">Referencias Personales</button>
-                                    <button  [routerLink]="'/solicitud-credito/'+solicitudId+'/docs'" routerLinkActive="active"
+                                    <button  (click)="validarDocs()" 
                                         class="btn btn-primary group" >Documentos</button>
                                 </div>
                             </div>

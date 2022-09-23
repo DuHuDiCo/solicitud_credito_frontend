@@ -29,6 +29,8 @@ import { WebcamModule } from '@cbdev/ngx-webcam';
 import { PhotoComponent } from './components/solicitud-credito-cliente/documentos/photo/photo.component';
 import { CedulaComponent } from './components/solicitud-credito-cliente/documentos/cedula/cedula.component';
 import { RespaldoCedulaComponent } from './components/solicitud-credito-cliente/documentos/cedula/respaldo-cedula/respaldo-cedula.component';
+import { CedulaCodeudorComponent } from './components/solicitud-credito-cliente/documentos/cedula-codeudor/cedula-codeudor.component';
+import { RespaldoCedulaCodeudorComponent } from './components/solicitud-credito-cliente/documentos/cedula-codeudor/respaldo-cedula-codeudor/respaldo-cedula-codeudor.component';
 
 
 
@@ -53,7 +55,9 @@ import { RespaldoCedulaComponent } from './components/solicitud-credito-cliente/
     DocumentosComponent,
     PhotoComponent,
     CedulaComponent,
-    RespaldoCedulaComponent    
+    RespaldoCedulaComponent,
+    CedulaCodeudorComponent,
+    RespaldoCedulaCodeudorComponent    
    
   ],
   imports: [
