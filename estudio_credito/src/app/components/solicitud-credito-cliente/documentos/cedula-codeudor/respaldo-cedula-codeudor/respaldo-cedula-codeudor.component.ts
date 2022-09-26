@@ -132,7 +132,7 @@ export class RespaldoCedulaCodeudorComponent implements OnInit {
         this.renderer2.setStyle(canva, 'display', 'none');
         this.canvasButtoms = false;
        
-        this.solicitudCredito.guardarRespaldoCedula(photo, quien);
+        this.solicitudCredito.guardarRespaldoCedulaCodeudor(photo);
         
       }
     })

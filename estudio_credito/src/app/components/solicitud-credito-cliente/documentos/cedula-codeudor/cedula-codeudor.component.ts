@@ -129,7 +129,7 @@ export class CedulaCodeudorComponent implements OnInit {
         this.renderer2.setStyle(imagen, 'width', '200px');
         this.renderer2.setStyle(canva, 'display', 'none');
         this.canvasButtoms = false;
-        this.solicitudCredito.guardarFrenteCedula(photo)
+        this.solicitudCredito.guardarFrenteCedulaCodeudor(photo)
       }
     })
 

@@ -27,7 +27,8 @@ export class DocumentosComponent implements OnInit {
   docs={
     "dataCredito":false,
     "datosPersonales":false,
-    "cedula_ciudadania":[{ "frente_cedula":'', "respaldo_cedula":''}],
+    "cedula_ciudadania_comprador":{},
+    "cedula_ciudadania_codeudor":{},
     "foto":{}
   }
 
@@ -69,7 +70,8 @@ export class DocumentosComponent implements OnInit {
     }else{
       this.docs = this.credito.getDocs();
       console.log(this.docs);
-      if(this.docs.cedula_ciudadania.length == 0 || this.docs.cedula_ciudadania.length == 0 || this.docs.foto == null){
+      
+      if(Object.keys(this.docs.cedula_ciudadania_comprador).length == 0 || Object.keys(this.docs.cedula_ciudadania_comprador).length == 0 || this.docs.foto == null){
         this.toast.error({
           detail: "Error",
           summary: "Debes Tomar la foto de cedula y rostro",

@@ -8,9 +8,68 @@ import { SolicituCreditoClienteEmisorService } from './solicitu-credito-cliente-
 })
 export class CreditoService {
 
-  cliente: any = {};
+  cliente = {
+    "nombres": '',
+    "apellidos": '',
+    "cedula": '',
+    "estado_civil": '',
+    "direccion": '',
+    "celular": '',
+    "email": '',
+    "empresa": '',
+    "direccion_empresa": '',
+    "cargo": '',
+    "tiempo_servicio": '',
+    "salario": null,
+    "otros_ingresos": '',
+    "valor_otros_ingresos": '',
+    "tipo_casa": '',
+    "valor_alquiler": null,
+    "propietario": '',
+    "telefono_casa": '',
+    "nombre_conyuge": '',
+    "trabajo_conyuge": '',
+    "direccion_trabajo_conyuge": '',
+    "telefono_trabajo_conyuge": '',
+    "nombre_pariente": '',
+    "direccion_pariente": '',
+    "telefono_pariente": '',
+    "cedula_ciudadania_cliente": {},
 
-  codeudor: any = {};
+  }
+
+  codeudor = {
+    "nombres": '',
+    "apellidos": '',
+    "cedula": '',
+    "estado_civil": '',
+    "direccion": '',
+    "celular": '',
+    "email": '',
+    "empresa": '',
+    "direccion_empresa": '',
+    "cargo": '',
+    "tiempo_servicio": '',
+    "salario": null,
+    "otros_ingresos": '',
+    "valor_otros_ingresos": '',
+    "tipo_casa": '',
+    "valor_alquiler": null,
+    "propietario": '',
+    "telefono_casa": '',
+    "nombre_conyuge": '',
+    "trabajo_conyuge": '',
+    "direccion_trabajo_conyuge": '',
+    "telefono_trabajo_conyuge": '',
+    "nombre_pariente": '',
+    "direccion_pariente": '',
+    "telefono_pariente": '',
+    "cedula_ciudadania_codeudor":{},
+
+
+  }
+
+ 
 
   referenciasComercilaes: any = []
   referenciasPersonales: any = []
@@ -24,7 +83,14 @@ export class CreditoService {
   documentos = {
     "dataCredito": false,
     "datosPersonales": false,
-    "cedula_ciudadania": [],
+    "cedula_ciudadania_comprador": {},
+    "cedula_ciudadania_codeudor":{},
+    "foto": {}
+  }
+
+  docs={
+    "dataCredito": false,
+    "datosPersonales": false,
     "foto": {}
   }
 
@@ -34,25 +100,42 @@ export class CreditoService {
     "id": null,
     "cliente": {},
     "codeudor": {},
-    "referencias":{
-      "referencias_comerciales":[],
-      "referencias_personales":[]
+    "documentos": {},
+    "referencias_comerciales":{
+      "referencias_comerciales_comprador":'',
+      "referencias_comerciales_codeudor":''
     },
-    "documentos": {}
+    "referencias_personales":{
+      "referencias_personales_comprador":'',
+      "referencias_personales_codeudor":''
+    }
   }
 
   cedulas: any = []
 
   solicitudId: any;
 
-  cedula_ciudadania = {
+  cedula_ciudadania_comprador = {
     frente_cedula: '',
-    respaldo_cedula: '',
-    propietario: ''
+    respaldo_cedula: ''
+  }
+
+  cedula_ciudadania_codeudor = {
+    frente_cedula: '',
+    respaldo_cedula: ''
   }
 
   foto = {
     "foto": ''
+  }
+
+  referencias_comerciales_comprador={
+    "nombre": '',
+    "telefono": ''
+  }
+  referencias_comerciales_codeudor={
+    "nombre": '',
+    "telefono": ''
   }
 
 
@@ -87,20 +170,19 @@ export class CreditoService {
   }
 
   public guardarFrenteCedula(cedula: any) {
-    this.cedula_ciudadania.frente_cedula = cedula;
+    this.cedula_ciudadania_comprador.frente_cedula = cedula;
 
 
   }
 
-  public guardarRespaldoCedula(cedula: any, quien: any) {
-    this.cedula_ciudadania.respaldo_cedula = cedula;
-    this.cedula_ciudadania.propietario = quien;
-    console.log(this.cedula_ciudadania);
-    this.cedulas.push(this.cedula_ciudadania);
-    this.cedula_ciudadania = {
+  public guardarRespaldoCedula(cedula: any, ) {
+    this.cedula_ciudadania_comprador.respaldo_cedula = cedula;
+    
+    console.log(this.cedula_ciudadania_comprador);
+    this.documentos.cedula_ciudadania_comprador = this.cedula_ciudadania_comprador;
+    this.cedula_ciudadania_comprador = {
       frente_cedula: '',
-      respaldo_cedula: '',
-      propietario: ''
+      respaldo_cedula: ''
     }
 
   }
@@ -108,10 +190,30 @@ export class CreditoService {
   public guardarFoto(foto: any) {
     this.foto.foto = foto;
     this.documentos.foto = this.foto;
-    this.documentos.cedula_ciudadania = this.cedulas;
-    console.log(this.cedulas);
+    
+    
+   
+  }
+
+  public guardarFrenteCedulaCodeudor(cedula: any) {
+    this.cedula_ciudadania_codeudor.frente_cedula = cedula;
+
 
   }
+
+  public guardarRespaldoCedulaCodeudor(cedula: any, ) {
+    this.cedula_ciudadania_codeudor.respaldo_cedula = cedula;
+    
+    console.log(this.cedula_ciudadania_comprador);
+    this.documentos.cedula_ciudadania_codeudor = this.cedula_ciudadania_codeudor;
+    this.cedula_ciudadania_comprador = {
+      frente_cedula: '',
+      respaldo_cedula: ''
+    }
+
+  }
+
+  
 
   public guardarFile(photo: any) {
     return this.http.post(`${baseUrl}/files/picture`, photo);
@@ -136,11 +238,15 @@ export class CreditoService {
   public guardarReferenciasComerciales(RComprador: any[], RCodeudor: any[]) {
     this.RefComerComprador = RComprador;
     this.RefComerCodeudor = RCodeudor;
+    console.log(this.RefComerComprador)
+    console.log(this.RefComerCodeudor)
   }
 
   public guardarReferecenciasPersonales(RComprador: any[], RCodeudor: any[]) {
     this.RefPersoComprador = RComprador;
     this.RefPersoCodeudor = RCodeudor;
+    console.log(this.RefPersoComprador)
+    console.log(this.RefPersoCodeudor)
   }
 
   public crearSolicitudCredito() {
@@ -153,28 +259,33 @@ export class CreditoService {
   public guardarAutorizaciones(datacrediot: any, datospersonales: any) {
     this.documentos.dataCredito = datacrediot;
     this.documentos.datosPersonales = datospersonales;
-
+    this.cliente.cedula_ciudadania_cliente = this.documentos.cedula_ciudadania_comprador;
+    this.codeudor.cedula_ciudadania_codeudor = this.documentos.cedula_ciudadania_codeudor;
+    
 
   }
 
   public guardarTodo() {
 
-    //agregamos las referencias comerciales del comprador y codeudor en un array
-    this.referenciasComercilaes.push(this.RefComerComprador);
-    this.referenciasComercilaes.push(this.RefComerCodeudor);
+ 
 
-    //agregamos las referencias comerciales del comprador y codeudor en un array
-    this.referenciasPersonales.push(this.RefPersoComprador);
-    this.referenciasPersonales.push(this.RefComerCodeudor);
-
+   
     this.solicitudCredito.cliente = this.cliente;
     this.solicitudCredito.id = this.emisor.getId();
-    this.solicitudCredito.cliente = this.cliente;
+    
     this.solicitudCredito.codeudor = this.codeudor;
-    this.solicitudCredito.referencias.referencias_comerciales = this.referenciasComercilaes;
-    this.solicitudCredito.referencias.referencias_personales = this.referenciasPersonales;
+    
+    this.docs.dataCredito = this.documentos.dataCredito;
+    this.docs.datosPersonales = this.documentos.datosPersonales;
+    this.docs.foto = this.documentos.foto;
+    this.solicitudCredito.documentos = this.docs;
 
-    this.solicitudCredito.documentos = this.documentos;
+    this.solicitudCredito.referencias_comerciales.referencias_comerciales_comprador = this.RefComerComprador;
+    this.solicitudCredito.referencias_comerciales.referencias_comerciales_codeudor = this.RefComerCodeudor;
+    
+    this.solicitudCredito.referencias_personales.referencias_personales_comprador = this.RefPersoComprador;
+    this.solicitudCredito.referencias_personales.referencias_personales_codeudor = this.RefPersoCodeudor;
+    
     console.log(this.solicitudCredito)
     
   }

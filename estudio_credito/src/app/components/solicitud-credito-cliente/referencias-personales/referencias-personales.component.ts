@@ -37,6 +37,19 @@ export class ReferenciasPersonalesComponent implements OnInit {
     "telefono": ''
   }
 
+  referencias_personales_comprador={
+    "nombre": '',
+    "telefono": ''
+  }
+  referencias_personales_codeudor={
+    "nombre": '',
+    "telefono": ''
+  }
+
+  referenciasComprador: any = []
+  referenciasCodeudor: any = []
+
+
 
   constructor(private emisor: SolicituCreditoClienteEmisorService, private credito:CreditoService,private router:Router,private renderer2: Renderer2, private toast: NgToastService) { }
 
@@ -62,11 +75,14 @@ export class ReferenciasPersonalesComponent implements OnInit {
         duration: 3500
       })
     } else {
+      this.referencias_personales_comprador.nombre = this.referenciaComprador.nombre;
+      this.referencias_personales_comprador.telefono = this.referenciaComprador.telefono;
       this.referenciaComprador.id = this.idComprador;
       const tbla = this.tbl.nativeElement;
       this.renderer2.setStyle(tbla, 'display', 'block');
       this.referenciasComerciales.push(this.referenciaComprador);
       this.referenciasPersonalesCliente.push(this.referenciaComprador);
+      this.referenciasComprador.push(this.referencias_personales_comprador);
       this.idComprador = this.idComprador + 1;
       this.referenciaComprador = {
         "id": '',
@@ -93,11 +109,14 @@ export class ReferenciasPersonalesComponent implements OnInit {
         duration: 3500
       })
     } else {
+      this.referencias_personales_codeudor.nombre = this.referenciaCodeudor.nombre;
+      this.referencias_personales_codeudor.telefono = this.referenciaCodeudor.telefono;
       this.referenciaCodeudor.id = this.idCodeudor;
       const tbla = this.tbl2.nativeElement;
       this.renderer2.setStyle(tbla, 'display', 'block');
       this.referenciasComerciales.push(this.referenciaCodeudor);
       this.referenciasPersonalesCodeudor.push(this.referenciaCodeudor);
+      this.referenciasCodeudor.push(this.referencias_personales_codeudor);
       this.idCodeudor = this.idCodeudor + 1;
       this.referenciaCodeudor = {
         "id": '',
@@ -143,7 +162,7 @@ export class ReferenciasPersonalesComponent implements OnInit {
         })
       }
     } else {
-      this.credito.guardarReferecenciasPersonales(this.referenciasPersonalesCliente, this.referenciasPersonalesCodeudor);
+      this.credito.guardarReferecenciasPersonales(this.referenciasComprador, this.referenciasCodeudor);
       Swal.fire({
         position:'top-end',
         icon:'success',

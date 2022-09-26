@@ -43,7 +43,7 @@ export class SolicitudCreditoClienteComponent implements OnInit {
     var compra= this.credito.getCliente();
    
 
-    if(Object.keys(compra).length == 0){
+    if(compra.cedula == '' || compra.cedula == null){
      
       
       
@@ -58,7 +58,7 @@ export class SolicitudCreditoClienteComponent implements OnInit {
 
   public validarCodeudor(){
     var codeud = this.credito.getCodeudor();
-    if(Object.keys(codeud).length == 0){
+    if(codeud.cedula == '' || codeud.cedula == null){
       this.toast.error({
         detail: "Error",
         summary: "Llene los datos",
@@ -116,7 +116,7 @@ export class SolicitudCreditoClienteComponent implements OnInit {
   
     var docs = this.credito.getDocs();
     
-    if(docs.cedula_ciudadania == null){
+    if(docs.cedula_ciudadania_comprador == null){
       this.toast.error({
         detail: "Error",
         summary: "Llene los datos",
