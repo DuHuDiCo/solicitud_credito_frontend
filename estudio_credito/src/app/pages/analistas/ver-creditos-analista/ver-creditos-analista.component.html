@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <h5>Creditos Por Estudiar</h5>
+                <hr>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Cliente</th>
+                                    <th>Fecha Creacion</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let s of solicitudes; let i = index">
+                                    <td>{{s.id}}</td>
+                                    <td>{{s.cliente.nombres}}</td>
+                                    <td>{{s.fecha}}</td>
+                                    <td><button class="btn btn-success">Estudiar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -86,7 +86,11 @@ export class LoginComponent implements OnInit {
         } else if (this.user.roles[0] === "ROL_USER") {
           this.router.navigate(['user']);
           this.loginService.loginStatusSubject.next(true);
-        } else {
+          
+        }else if (this.user.roles[0] === "ROL_ANALISTA") {
+          this.router.navigate(['analista']);
+          this.loginService.loginStatusSubject.next(true); 
+        }else {
           this.loginService.logout();
         }
 

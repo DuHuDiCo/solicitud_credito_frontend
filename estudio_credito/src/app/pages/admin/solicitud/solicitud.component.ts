@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CreditoService } from 'src/app/services/credito.service';
 import Swal from 'sweetalert2';
 
@@ -24,7 +25,7 @@ export class SolicitudComponent implements OnInit {
 
   solicitudCredito = {}
 
-  constructor(private creditoService:CreditoService) { }
+  constructor(private creditoService:CreditoService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -56,7 +57,7 @@ export class SolicitudComponent implements OnInit {
           showConfirmButton: false,
           timer:2000
         })
-        console.log(data);
+        this.router.navigate(['/admin/view-solicitudes']);
       }, (error:any)=>{
         Swal.fire("Error", "Error al crear la solicitud de credito", 'error');
         console.log(error);

@@ -31,6 +31,15 @@ import { CedulaComponent } from './components/solicitud-credito-cliente/document
 import { RespaldoCedulaComponent } from './components/solicitud-credito-cliente/documentos/cedula/respaldo-cedula/respaldo-cedula.component';
 import { CedulaCodeudorComponent } from './components/solicitud-credito-cliente/documentos/cedula-codeudor/cedula-codeudor.component';
 import { RespaldoCedulaCodeudorComponent } from './components/solicitud-credito-cliente/documentos/cedula-codeudor/respaldo-cedula-codeudor/respaldo-cedula-codeudor.component';
+import { SolicitudCreadaComponent } from './components/solicitud-credito-cliente/solicitud-creada/solicitud-creada.component';
+import { DashboardAnalistasComponent } from './pages/analistas/dashboard-analistas/dashboard-analistas.component';
+import { SidebarAnalistaComponent } from './pages/analistas/sidebar-analista/sidebar-analista.component';
+import { VerCreditosAnalistaComponent } from './pages/analistas/ver-creditos-analista/ver-creditos-analista.component';
+import { EstudioCompradorComponent } from './pages/analistas/analisis-credito/estudio-comprador/estudio-comprador.component';
+import { EstudioCodeudorComponent } from './pages/analistas/analisis-credito/estudio-codeudor/estudio-codeudor.component';
+import { AutorizacionesComponent } from './pages/analistas/analisis-credito/autorizaciones/autorizaciones.component';
+
+
 
 
 
@@ -57,7 +66,15 @@ import { RespaldoCedulaCodeudorComponent } from './components/solicitud-credito-
     CedulaComponent,
     RespaldoCedulaComponent,
     CedulaCodeudorComponent,
-    RespaldoCedulaCodeudorComponent    
+    RespaldoCedulaCodeudorComponent,
+    SolicitudCreadaComponent,
+    DashboardAnalistasComponent,
+    SidebarAnalistaComponent,
+    VerCreditosAnalistaComponent,
+    EstudioCompradorComponent,
+    EstudioCodeudorComponent,
+    AutorizacionesComponent,
+    
    
   ],
   imports: [

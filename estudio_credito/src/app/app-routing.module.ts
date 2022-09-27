@@ -7,78 +7,122 @@ import { DatosCompradorComponent } from './components/solicitud-credito-cliente/
 import { DocumentosComponent } from './components/solicitud-credito-cliente/documentos/documentos.component';
 import { ReferenciasComercialesComponent } from './components/solicitud-credito-cliente/referencias-comerciales/referencias-comerciales.component';
 import { ReferenciasPersonalesComponent } from './components/solicitud-credito-cliente/referencias-personales/referencias-personales.component';
+import { SolicitudCreadaComponent } from './components/solicitud-credito-cliente/solicitud-creada/solicitud-creada.component';
 import { SolicitudCreditoClienteComponent } from './components/solicitud-credito-cliente/solicitud-credito-cliente.component';
 
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { SolicitudComponent } from './pages/admin/solicitud/solicitud.component';
 import { ViewCreditosComponent } from './pages/admin/view-creditos/view-creditos.component';
+import { AutorizacionesComponent } from './pages/analistas/analisis-credito/autorizaciones/autorizaciones.component';
+import { EstudioCodeudorComponent } from './pages/analistas/analisis-credito/estudio-codeudor/estudio-codeudor.component';
+import { EstudioCompradorComponent } from './pages/analistas/analisis-credito/estudio-comprador/estudio-comprador.component';
+import { DashboardAnalistasComponent } from './pages/analistas/dashboard-analistas/dashboard-analistas.component';
+import { VerCreditosAnalistaComponent } from './pages/analistas/ver-creditos-analista/ver-creditos-analista.component';
+
+
 import { ModeradorComponent } from './pages/moderador/moderador/moderador.component';
 import { UserComponent } from './pages/user/user/user.component';
 import { AdminGuard } from './services/admin.guard';
+import { AnalistaGuard } from './services/analista.guard';
 
 
 
 const routes: Routes = [
   {
-    path:"",
-    component:LoginComponent,
-    pathMatch:"full"
+    path: "",
+    component: LoginComponent,
+    pathMatch: "full"
   },
+
   {
-    path:"admin",
-    component:DashboardComponent,
-    canActivate:[AdminGuard],
+    path:'analista',
+    component:DashboardAnalistasComponent,
+    canActivate:[AnalistaGuard],
     children:[
       {
-        path:'solicitud',
-        component:SolicitudComponent
+        path:'creditos',
+        component:VerCreditosAnalistaComponent,
+        
       },
       {
-        path:'view-solicitudes',
-        component:ViewCreditosComponent
+        path:'solicitud/:solicitudId/estudio-comprador',
+        component:EstudioCompradorComponent
+      },
+      {
+        path:'solicitud/:solicitudId/estudio-codeudor',
+        component:EstudioCodeudorComponent
+      },
+      {
+        path:'solicitud/:solicitudId/estudio-autorizaciones',
+        component:AutorizacionesComponent
       }
       
     ]
   },
+   
   {
-    path:'moderador',
-    component:ModeradorComponent,
-    pathMatch:'full'
-  },
-  {
-    path:'user',
-    component:UserComponent,
-    pathMatch:'full'
-  },
-  {
-    path:'solicitud-credito/:solicitudId',
-    component:SolicitudCreditoClienteComponent,
-    
-    children:[
+    path: "admin",
+    component: DashboardComponent,
+    canActivate: [AdminGuard],
+    children: [
       {
-        path:'comprador',
-        component:DatosCompradorComponent
+        path: 'solicitud',
+        component: SolicitudComponent,
+       
       },
       {
-        path:'codeudor',
-        component:DatosCodeudorComponent
-      },
-      {
-        path:'referencias-comerciales',
-        component:ReferenciasComercialesComponent
-      },
-      {
-        path:'referencias-personales',
-        component:ReferenciasPersonalesComponent
-      },
-      {
-        path:'docs',
-        component:DocumentosComponent
+        path: 'view-solicitudes',
+        component: ViewCreditosComponent
       }
+
     ]
-    
   },
-  
+  {
+    path: 'moderador',
+    component: ModeradorComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'user',
+    component: UserComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'solicitud-credito/:solicitudId',
+    component: SolicitudCreditoClienteComponent,
+
+    children: [
+      {
+        path: 'comprador',
+        component: DatosCompradorComponent
+      },
+      {
+        path: 'codeudor',
+        component: DatosCodeudorComponent
+      },
+      {
+        path: 'referencias-comerciales',
+        component: ReferenciasComercialesComponent
+      },
+      {
+        path: 'referencias-personales',
+        component: ReferenciasPersonalesComponent
+      },
+      {
+        path: 'docs',
+        component: DocumentosComponent
+      },
+      
+
+    ]
+
+  },
+  {
+    path: 'success',
+    component: SolicitudCreadaComponent,
+    pathMatch:'full'
+  }
+
 ];
 
 @NgModule({
