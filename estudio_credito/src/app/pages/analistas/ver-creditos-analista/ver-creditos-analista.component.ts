@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AnalistaEmisorService } from 'src/app/services/analista-emisor.service';
 import { AnalistasService } from 'src/app/services/analistas.service';
 
 @Component({
@@ -10,7 +12,8 @@ export class VerCreditosAnalistaComponent implements OnInit {
 
   solicitudes:any = []
 
-  constructor(private analistaService:AnalistasService) { }
+  solicitud = {}
+  constructor(private analistaService:AnalistasService, private emisor:AnalistaEmisorService, private router:Router) { }
 
   ngOnInit(): void {
     this.obtenerSolicitudes();
@@ -21,11 +24,25 @@ export class VerCreditosAnalistaComponent implements OnInit {
       (data:any)=>{
         
         this.solicitudes = data;
-        console.log(this.solicitudes);
+        
       },(error:any)=>{
         console.log(error);
       }
     )
+  }
+
+  public obtenerSolicitudById(id:any){
+    this.emisor.setSolicitudId(id);
+    this.analistaService.obtenerSolicitudById(id).subscribe(
+      (data:any)=>{
+        this.solicitud = data;
+        this.emisor.setSolicitud(this.solicitud);
+        this.router.navigate(['analista/solicitud/'+id+'/estudio-comprador']);
+        
+      },(error:any)=>{
+        console.log(error);
+      }
+    );
   }
 
 }

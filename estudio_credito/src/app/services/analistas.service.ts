@@ -13,4 +13,8 @@ export class AnalistasService {
   public obtenerSolicitudes(){
     return this.http.get(`${baseUrl}/analista/`);
   }
+
+  public obtenerSolicitudById(id:any){
+    return this.http.get(`${baseUrl}/analista/${id}`);
+  }
 }

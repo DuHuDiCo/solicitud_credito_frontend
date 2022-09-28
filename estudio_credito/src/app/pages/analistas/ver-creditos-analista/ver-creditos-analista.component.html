@@ -18,9 +18,9 @@
                             <tbody>
                                 <tr *ngFor="let s of solicitudes; let i = index">
                                     <td>{{s.id}}</td>
-                                    <td>{{s.cliente.nombres}}</td>
+                                    <td>{{s.cliente}}</td>
                                     <td>{{s.fecha}}</td>
-                                    <td><button class="btn btn-success">Estudiar</button></td>
+                                    <td><button (click)="obtenerSolicitudById(s.id)" class="btn btn-success">Estudiar</button></td>
                                 </tr>
                             </tbody>
                         </table>
