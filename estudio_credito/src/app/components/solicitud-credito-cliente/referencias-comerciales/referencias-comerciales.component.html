@@ -48,7 +48,7 @@
                 </div>
 
             </div>
-            <hr>    
+            <hr>
             <h5 class="text-center">Codeudor</h5>
             <h6>Referencia :</h6>
             <div class="col-md-6">
@@ -57,12 +57,13 @@
             </div>
 
             <div class="col-md-6">
-                <label for=""   class="form-label">Telefono: </label>
+                <label for="" class="form-label">Telefono: </label>
                 <input type="number" class="form-control" [(ngModel)]="referenciaCodeudor.telefono" name="telefono">
             </div>
             <div class="row mt-2">
                 <div class="col-md-5 offset-md-9">
-                    <button (click)="agregarReferenciaComerCodeu()" class="btn btn-primary conti">Agregar Refenecia</button>
+                    <button (click)="agregarReferenciaComerCodeu()" class="btn btn-primary conti">Agregar
+                        Refenecia</button>
                 </div>
             </div>
             <hr>
@@ -96,10 +97,11 @@
             <hr>
             <div class="row">
                 <div class="col-md-5 offset-md-8 col-sm-3  offset-sm-9">
-                    <button  (click)="goBack()"
-                        class="btn btn-primary conti me-2">Regresar</button>
-                    <button (click)="guardarYContinuar()" 
-                        class="btn btn-primary conti">Guardar y Continuar</button>
+                    <button (click)="goBack()" class="btn btn-primary conti me-2">Regresar</button>
+                    <button (click)="guardarYContinuar()"
+                        class="btn btn-primary conti d-none d-sm-none d-md-block">Guardar y Continuar</button>
+                    <button (click)="guardarYContinuarMovil()"
+                        class="btn btn-primary conti d-block d-sm-block d-md-none">Guardar y Continuar</button>
                 </div>
             </div>
         </form>

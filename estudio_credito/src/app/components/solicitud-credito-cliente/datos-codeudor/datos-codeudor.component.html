@@ -139,7 +139,8 @@
                 <div class="col-md-5 offset-md-8 col-sm-3  offset-sm-9">
                     <a (click)="goBack() "
                         class="btn btn-primary conti me-2">Regresar</a>
-                    <button  class="btn btn-primary conti">Guardar y Continuar</button>
+                    <button  class="btn btn-primary conti d-none d-sm-none d-md-block">Guardar y Continuar</button>
+                    <button (click)="guardarYContinuarMovil()"  class="btn btn-primary conti d-block d-sm-block d-md-none">Guardar y Continuar</button>
                 </div>
             </div>
         </form>

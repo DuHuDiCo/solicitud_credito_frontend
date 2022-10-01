@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { CreditoService } from 'src/app/services/credito.service';
 import { SolicituCreditoClienteEmisorService } from 'src/app/services/solicitu-credito-cliente-emisor.service';
+import { SolicitudClienteMovilEmisorService } from 'src/app/services/solicitud-cliente-movil-emisor.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -49,7 +50,7 @@ export class ReferenciasComercialesComponent implements OnInit {
   referenciasCodeudor: any = []
 
 
-  constructor(private emisor: SolicituCreditoClienteEmisorService, private credito:CreditoService,private router: Router, private renderer2: Renderer2, private toast: NgToastService) { }
+  constructor(private emisor: SolicituCreditoClienteEmisorService, private emisorMovil:SolicitudClienteMovilEmisorService,private credito:CreditoService,private router: Router, private renderer2: Renderer2, private toast: NgToastService) { }
 
   ngOnInit(): void {
     this.solicitudId = this.emisor.getId();
@@ -202,4 +203,37 @@ export class ReferenciasComercialesComponent implements OnInit {
       })
     }
   }
+
+
+  public guardarYContinuarMovil(){
+    if (Object.keys(this.referenciasComercialesCliente).length == 0 || Object.keys(this.referenciasComercialesCodeudor).length == 0) {
+      this.toast.error({
+        detail: "Error",
+        summary: "no has agregado referencias comerciales para el comprador",
+        position: "tr",
+        duration: 3500
+      })
+      if ( Object.keys(this.referenciasComercialesCodeudor).length == 0) {
+        this.toast.error({
+          detail: "Error",
+          summary: "no has agregado referencias comerciales para codeudor",
+          position: "tr",
+          duration: 3500
+        })
+      }
+    } else {
+      this.emisorMovil.guardarReferenciasComerciales(this.referenciasComercialesCliente,this.referenciasComercialesCodeudor);
+      Swal.fire({
+        position:'top-end',
+        icon:'success',
+        title:'Datos Guardados Exitosamente',
+        showConfirmButton: false,
+        timer:2000
+      })
+      this.router.navigate(['/solicitud-credito/' + this.solicitudId + '/referencias-personales']);
+    }
+  }
+
+
+
 }

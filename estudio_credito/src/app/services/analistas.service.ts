@@ -17,4 +17,8 @@ export class AnalistasService {
   public obtenerSolicitudById(id:any){
     return this.http.get(`${baseUrl}/analista/${id}`);
   }
+
+  public guardarSolicitudAnalista(solicitudAnalista:any){
+    return this.http.post(`${baseUrl}/solicitud-analista/`,solicitudAnalista);
+  }
 }

@@ -99,7 +99,9 @@
                     <button (click)="goBack()" 
                         class="btn btn-primary conti me-2">Regresar</button>
                     <button (click)="guardarYContinuar()" 
-                        class="btn btn-primary conti">Guardar y Continuar</button>
+                        class="btn btn-primary conti d-none d-sm-none d-md-block">Guardar y Continuar</button>
+                        <button (click)="guardarYContinuarMovil()"
+                        class="btn btn-primary conti d-block d-sm-block d-md-none">Guardar y Continuar</button>
                 </div>
             </div>
         </form>

@@ -5,6 +5,7 @@ import { LocationStrategy } from '@angular/common';
 import { NgToastService } from 'ng-angular-popup';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { SolicitudClienteMovilEmisorService } from 'src/app/services/solicitud-cliente-movil-emisor.service';
 @Component({
   selector: 'app-datos-codeudor',
   templateUrl: './datos-codeudor.component.html',
@@ -44,7 +45,7 @@ export class DatosCodeudorComponent implements OnInit {
 
   }
 
-  constructor(private emison: SolicituCreditoClienteEmisorService, private toast: NgToastService, private credito: CreditoService, private locationSt: LocationStrategy, private router: Router) { }
+  constructor(private emison: SolicituCreditoClienteEmisorService, private emisorMovil:SolicitudClienteMovilEmisorService,private toast: NgToastService, private credito: CreditoService, private locationSt: LocationStrategy, private router: Router) { }
 
   ngOnInit(): void {
     this.solicitudId = this.emison.getId();
@@ -232,6 +233,140 @@ export class DatosCodeudorComponent implements OnInit {
         }
       })
 
+    }
+  }
+
+
+  public guardarYContinuarMovil(){
+    if (this.codeudor.nombres == null || this.codeudor.nombres == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+
+      })
+
+    } else if (this.codeudor.apellidos == null || this.codeudor.apellidos == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.cedula == null || this.codeudor.cedula == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+    } else if (this.codeudor.estado_civil == null || this.codeudor.estado_civil == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+    } else if (this.codeudor.direccion == null || this.codeudor.direccion == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.celular == null || this.codeudor.celular == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.email == null || this.codeudor.email == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.empresa == null || this.codeudor.empresa == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.cargo == null || this.codeudor.cargo == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.tiempo_servicio == null || this.codeudor.tiempo_servicio == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+    } else if (this.codeudor.salario == null || this.codeudor.salario == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.tipo_casa == null || this.codeudor.tipo_casa == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.nombre_pariente == null || this.codeudor.nombre_pariente == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.direccion == null || this.codeudor.direccion == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else if (this.codeudor.telefono_pariente == null || this.codeudor.telefono_pariente == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+
+    } else {
+      this.emisorMovil.guardarCodeudor(this.codeudor);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Datos Guardados Exitosamente',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      
+      this.router.navigate(['/solicitud-credito/' + this.solicitudId + '/referencias-comerciales']);
     }
   }
 

@@ -1,8 +1,75 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="card shadow p-3 mb-5 bg-body rounded">
-              
+            <div class="card shadow p-3 mb-5 bg-body rounded  ">
+                <h5>Autorizaciones:</h5>
+                <hr>
+                <form style="overflow-y: scroll; height: 500px;" >
+                    <h6>Autorizacion Data Credito</h6>
+                    <div class="col-md-12 ">
+                        <div class="form-check form-switch mt-3 border border-1 bg-light ">
+                            <input [checked]="false" [(ngModel)]="documentos.dataCredito.autorizacion"
+                                name="autorizoDataCredito" class="form-check-input check conti" type="checkbox" id=""
+                                disabled>
+                            <p>Autorizo expresamente a GMJ HOGAR S.A.S. NIT. 901.056.810-9. Para que la información
+                                suministrada
+                                en el presente documento,
+                                que tiene carácter estrictamente personal y confidencial, sea consultada o verificada
+                                con
+                                terceras personas, incluyendo
+                                los bancos o bases de datos; igualmente para que la misma sea usada y puesta en
+                                circulación
+                                con
+                                fines únicamente comerciales.
+                                También autorizo expresamente para que encaso de incumplimiento de la(s) obligación(es),
+                                sea
+                                reportado al
+                                Banco de Datos de Fenalco(Procredito) o a cualquier otro.
+                            </p>
+                        </div>
+                        <label for=""><b>Fecha Autorizacion: {{documentos.dataCredito.fecha}}</b></label>
+                    </div>
+                    <hr>
+                    <h6>Autorizacion Datos Personales</h6>
+                    <div class="col-md-12 ">
+                        <div class="form-check form-switch mt-3 border border-1 bg-light">
+                            <input [checked]="false" [(ngModel)]="documentos.datosPersonales.autorizacion"
+                                name="autorizoDatosPersonales" class="form-check-input check conti" type="checkbox"
+                                id="" disabled>
+                            <p>Autorizo el <a href="" class="tdp">Uso y Tratamiento de Datos Personales</a>
+                            </p>
+                        </div>
+                        <label for=""><b>Fecha Autorizacion: {{documentos.datosPersonales.fecha}}</b></label>
+                    </div>
+                    <hr>
+                    <h5>Determinacion Credito:</h5>
+                    <hr>
+                    <div class="col-md-10 offset-md-1 ">
+                        <label for="">Seleccione el Nuevo Estado del Credito</label>
+                        <select  id="" class="form-control mt-2 mb-2" [(ngModel)]="determinacion.estado" name="estado">
+                            <option value="" selected>Seleccione:</option>
+                            <option value="pre-aprobado">Pre-Aprobado</option>
+                            <option value="no-pre-aprobado">No Pre-Aprobado</option>
+                            <option value="datos-incompletos">Datos Incompletos</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-10 offset-md-1">
+                        <label for="">Ingrese las Observaciones (razones de la no aprobacion, documentos incompletos,
+                            etc.)</label>
+                        <textarea  [(ngModel)]="determinacion.observacion" name="observacion" class="form-control mt-2 mb-2" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    
+                    <br>
+                    <br>
+                </form>
+                <hr>
+                <div class="col-md-3 offset-md-10 mt-1">
+                    
+                    <button (click)="guardarDatosAnalizador()" class="btn btn-success conti">Guardar
+                        Credito</button>
+
+                </div>
             </div>
         </div>
     </div>

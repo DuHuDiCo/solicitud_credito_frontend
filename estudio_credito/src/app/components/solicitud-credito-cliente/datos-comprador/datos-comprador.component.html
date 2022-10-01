@@ -126,8 +126,8 @@
             <div class="row">
                 <div class="col-md-3 offset-md-9 col-sm-3  offset-sm-9">
 
-                    <button  class="btn btn-primary conti">Guardar y Continuar</button>
-
+                    <button  class="btn btn-primary conti d-none d-sm-none d-md-block">Guardar y Continuar</button>
+                    <button (click)="guardarYContinuarMovil()"  class="btn btn-primary conti d-block d-sm-block d-md-none">Guardar y Continuar</button>
                 </div>
             </div>
         </form>

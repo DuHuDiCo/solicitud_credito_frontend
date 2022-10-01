@@ -8,12 +8,14 @@
             <h5>Comprador</h5>
             <div class="col-md-12">
                 <label for="" class="form-label">Cedula Ciudadania: </label>
-                <input type="file" class="form-control d-block d-sm-block d-md-none" capture="camera">
+                <input  type="file" name="frente" (change)="capturarFrenteCedulaCliente($event)"
+                    class="form-control d-block d-sm-block d-md-none" capture="camera">
                 <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
                     <p>Por favor debes tomar una foto de la cedula ciudadania por el frente.
                 </div>
 
-                <input type="file" class="form-control d-block d-sm-block d-md-none" capture="camera">
+                <input type="file"  name="respaldo" (change)="capturarRespaldoCedulaCliente($event)"
+                    class="form-control d-block d-sm-block d-md-none" capture="camera">
                 <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
                     <p>Por favor debes tomar una foto de la cedula ciudadania por el Respaldo.
                 </div>
@@ -29,7 +31,7 @@
 
             <div class="col-md-12 d-block d-sm-block d-md-none">
                 <label for="" class="form-label">Foto: </label>
-                <input type="file" class="form-control" capture="camera">
+                <input type="file" (change)="capturarFoto($event)" class="form-control" capture="camera">
                 <div id="emailHelp" class="form-text">
                     <p>Por favor debes tomar una foto de tu rostro.
                 </div>
@@ -39,20 +41,35 @@
             <div id="emailHelp" class="form-text d-none d-sm-none d-md-block">
                 <p>Por favor debes tomar una foto de la cedula ciudadania del codeudor por las dos caras.
             </div>
+            <div class="col-md-12">
+                <label for="" class="form-label">Cedula Ciudadania: </label>
+                <input type="file"  name="frente" (change)="capturarFrenteCedulaCodeudor($event)"
+                    class="form-control d-block d-sm-block d-md-none" capture="camera">
+                <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
+                    <p>Por favor debes tomar una foto de la cedula ciudadania por el frente.
+                </div>
+
+                <input type="file" class="form-control d-block d-sm-block d-md-none"  (change)="capturarRespaldoCedulaCodeudor($event)"
+                     name="respaldo" capture="camera">
+                <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
+                    <p>Por favor debes tomar una foto de la cedula ciudadania por el Respaldo.
+                </div>
+            </div>
+
             <div>
                 <app-cedula-codeudor></app-cedula-codeudor>
 
             </div>
 
             <hr>
-            <label for="" class="form-label">Foto: </label>
+            <label for="" class="form-label  d-none d-sm-none d-md-block">Foto: </label>
             <div id="emailHelp" class="form-text d-none d-sm-none d-md-block">
                 <p>Por favor debes tomar una foto de tu rostro, para verificar tu identidad.
             </div>
             <app-photo></app-photo>
             <div class="col-md-12 ">
                 <div class="form-check form-switch mt-3 border border-1 bg-light ">
-                    <input [checked]="false" [(ngModel)]="dataCredito.autorizacion" name="autorizoDataCredito"
+                    <input [checked]="false" [(ngModel)]="docsMovil.dataCredito" name="dataCredito"
                         class="form-check-input check" type="checkbox" id="">
                     <p>Autorizo expresamente a GMJ HOGAR S.A.S. NIT. 901.056.810-9. Para que la información suministrada
                         en el presente documento,
@@ -68,7 +85,7 @@
             </div>
             <div class="col-md-12 ">
                 <div class="form-check form-switch mt-3 border border-1 bg-light">
-                    <input [checked]="false" [(ngModel)]="datosPersonales.autorizacion" name="autorizoDatosPersonales"
+                    <input [checked]="false" [(ngModel)]="docsMovil.datosPersonales" name="datosPersonales"
                         class="form-check-input check " type="checkbox" id="">
                     <p>Autorizo el <a href="" class="tdp">Uso y Tratamiento de Datos Personales</a>
                     </p>
@@ -79,9 +96,14 @@
                 <div class="col-md-5 offset-md-8 col-sm-3  offset-sm-9">
                     <button *ngIf="valid" [routerLink]="'/solicitud-credito/'+solicitudId+'/referencias-personales'"
                         class="btn btn-primary conti me-2">Regresar</button>
-                    <button *ngIf="valid" (click)="guardarSeccion()" class="btn btn-primary conti">Guardar
+                    <button *ngIf="valid" (click)="guardarSeccion()"
+                        class="btn btn-primary conti d-none d-sm-none d-md-block">Guardar
                         Sección</button>
-                    <button *ngIf="!valid" (click)="enviarSolicitud()" class="btn btn-primary conti">Guardar Todo y
+                    <button *ngIf="valid" (click)="guardarSeccionMovil()"
+                        class="btn btn-primary conti d-block d-sm-block d-md-none">Guardar
+                        Sección</button>
+                    <button *ngIf="!valid" (click)="enviarSolicitud()"
+                        class="btn btn-primary conti d-none d-sm-none d-md-block">Guardar Todo y
                         Enviar</button>
                 </div>
             </div>

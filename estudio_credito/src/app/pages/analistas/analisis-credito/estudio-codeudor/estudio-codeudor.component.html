@@ -1,123 +1,264 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="card shadow-sm  mb-5 bg-body rounded border border-1 p-3" style="overflow-y: scroll; height: 500px;">
+        <div class="card shadow-sm  mb-5 bg-body rounded border border-1 p-3">
             <h5>Datos del Codeudor:</h5>
             <br>
-            <form class="row g-3 was-validated" >
-                <div class="col-md-4">
-                    <label for="" class="form-label">Nombres: </label>
-                    <input type="text" name="nombres" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Apellidos: </label>
-                    <input type="text" name="apellidos" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Cedula Ciudadania: </label>
-                    <input type="number" name="cedula" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Estado Civil: </label>
-                    <input type="text" name="estado_civil" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Direccion: </label>
-                    <input type="text" name="direccion" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Celular: </label>
-                    <input type="tel" name="celular" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Email: </label>
-                    <input type="email" name="email" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Empresa donde Labora: </label>
-                    <input type="text" name="empresa" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Direccion Empresa: </label>
-                    <input type="text" name="direccion_empresa" disabled class="form-control">
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Cargo: </label>
-                    <input type="text" name="cargo" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Tiempo en el Cargo (meses): </label>
-                    <input type="text" name="tiempo_servicio" class="form-control" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Salario (mensual): </label>
-                    <input type="number" class="form-control" name="salario" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Otros ingresos (fuente): </label>
-                    <input type="text" class="form-control" name="otros_ingresos" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Valor Otros Ingresos (cantidad): </label>
-                    <input type="text" class="form-control" disabled name="valor_otros_ingresos">
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Tipo de Vivienda</label>
-                    <input type="text" class="form-control" disabled name="tipo_casa">
+            <div>
+                <form class="row g-3 was-validated" style="overflow-y: scroll; height: 500px;">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Nombres: </label>
+                        <input type="text" [(ngModel)]="codeudor.nombres" name="nombres" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Apellidos: </label>
+                        <input type="text" [(ngModel)]="codeudor.apellidos" name="apellidos" class="form-control"
+                            disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Cedula Ciudadania: </label>
+                        <input type="number" [(ngModel)]="codeudor.cedula" name="cedula" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Estado Civil: </label>
+                        <input type="text" [(ngModel)]="codeudor.estado_civil" name="estado_civil" class="form-control"
+                            disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Direccion: </label>
+                        <input type="text" [(ngModel)]="codeudor.direccion" name="direccion" class="form-control"
+                            disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Celular: </label>
+                        <input type="tel" [(ngModel)]="codeudor.celular" name="celular" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Email: </label>
+                        <input type="email" [(ngModel)]="codeudor.email" name="email" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Empresa donde Labora: </label>
+                        <input type="text" [(ngModel)]="codeudor.empresa" name="empresa" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Direccion Empresa: </label>
+                        <input type="text" [(ngModel)]="codeudor.direccion_empresa" name="direccion_empresa" disabled
+                            class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Cargo: </label>
+                        <input type="text" [(ngModel)]="codeudor.cargo" name="cargo" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Tiempo en el Cargo (meses): </label>
+                        <input type="text" [(ngModel)]="codeudor.tiempo_servicio" name="tiempo_servicio"
+                            class="form-control" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Salario (mensual): </label>
+                        <input type="number" [(ngModel)]="codeudor.salario" class="form-control" name="salario" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Otros ingresos (fuente): </label>
+                        <input type="text" [(ngModel)]="codeudor.otros_ingresos" class="form-control"
+                            name="otros_ingresos" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Valor Otros Ingresos (cantidad): </label>
+                        <input type="text" [(ngModel)]="codeudor.valor_otros_ingresos" class="form-control" disabled
+                            name="valor_otros_ingresos">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Tipo de Vivienda</label>
+                        <input type="text" [(ngModel)]="codeudor.tipo_casa" class="form-control" disabled
+                            name="tipo_casa">
 
-                </div>
+                    </div>
 
-                <div class="col-md-4">
-                    <label for="" class="form-label">Valor Alquiler</label>
-                    <input type="number" class="form-control" name="valor_alquiler" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Nombre Propietario</label>
-                    <input type="text" class="form-control" name="propietario" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Telefono</label>
-                    <input type="number" class="form-control" name="telefono_casa" disabled>
-                </div>
+                    <div *ngIf="codeudor.tipo_casa == 'arriendo'" class="col-md-4">
+                        <label for="" class="form-label">Valor Alquiler</label>
+                        <input type="number" [(ngModel)]="codeudor.valor_alquiler" class="form-control"
+                            name="valor_alquiler" disabled>
+                    </div>
+                    <div class="col-md-4" *ngIf="codeudor.tipo_casa == 'arriendo'">
+                        <label for="" class="form-label">Nombre Propietario</label>
+                        <input type="text" [(ngModel)]="codeudor.propietario" class="form-control" name="propietario"
+                            disabled>
+                    </div>
+                    <div class="col-md-4" *ngIf="codeudor.tipo_casa == 'arriendo'">
+                        <label for="" class="form-label">Telefono</label>
+                        <input type="number" [(ngModel)]="codeudor.telefono_casa" class="form-control"
+                            name="telefono_casa" disabled>
+                    </div>
 
 
-                <div class="col-md-3">
-                    <label for="" class="form-label">Nombre Conyuge</label>
-                    <input type="text" class="form-control" name="nombre_conyuge" disabled>
-                </div>
-                <div class="col-md-3">
-                    <label for="" class="form-label">Empresa donde Trabaja</label>
-                    <input type="text" class="form-control" name="trabajo_conyuge" disabled>
-                </div>
-                <div class="col-md-3">
-                    <label for="" class="form-label">Direccion</label>
-                    <input type="text" class="form-control" disabled name="direccion_trabajo_conyuge">
-                </div>
-                <div class="col-md-3">
-                    <label for="" class="form-label">Telefono</label>
-                    <input type="number" class="form-control" disabled name="telefono_trabajo_conyuge">
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Nombre Pariente</label>
-                    <input type="text" class="form-control" name="nombre_pariente" disabled>
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Direccion</label>
-                    <input type="text" class="form-control" disabled name="direccion_pariente">
-                </div>
-                <div class="col-md-4">
-                    <label for="" class="form-label">Telefono</label>
-                    <input type="tel" class="form-control" name="telefono_pariente" disabled>
-                </div>
+                    <div class="col-md-3" *ngIf="codeudor.estado_civil == 'casado'">
+                        <label for="" class="form-label">Nombre Conyuge</label>
+                        <input type="text" [(ngModel)]="codeudor.nombre_conyuge" class="form-control"
+                            name="nombre_conyuge" disabled>
+                    </div>
+                    <div class="col-md-3" *ngIf="codeudor.estado_civil == 'casado'">
+                        <label for="" class="form-label">Empresa donde Trabaja</label>
+                        <input type="text" class="form-control " [(ngModel)]="codeudor.trabajo_conyuge"
+                            name="trabajo_conyuge" disabled>
+                    </div>
+                    <div class="col-md-3" *ngIf="codeudor.estado_civil == 'casado'">
+                        <label for="" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" [(ngModel)]="codeudor.direccion_trabajo_conyuge" disabled
+                            name="direccion_trabajo_conyuge">
+                    </div>
+                    <div class="col-md-3" *ngIf="codeudor.estado_civil == 'casado'">
+                        <label for="" class="form-label">Telefono</label>
+                        <input type="number" class="form-control" disabled
+                            [(ngModel)]="codeudor.telefono_trabajo_conyuge" name="telefono_trabajo_conyuge">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Nombre Pariente</label>
+                        <input type="text" class="form-control" name="nombre_pariente"
+                            [(ngModel)]="codeudor.nombre_pariente" disabled>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Direccion</label>
+                        <input type="text" class="form-control" disabled [(ngModel)]="codeudor.direccion_pariente"
+                            name="direccion_pariente">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Telefono</label>
+                        <input type="tel" class="form-control" name="telefono_pariente"
+                            [(ngModel)]="codeudor.telefono_pariente" disabled>
+                    </div>
+                    
+                    <label class="form-label" for="">Observaciones:</label>
+                    <div class="col-md-12">
+                       
+                        <textarea name="observacion_codeudor" required  [(ngModel)]="observacion_codeudor" class="form-control" id="" cols="130" rows="10"></textarea>
+                        
+                    </div>
+                    <div class="col-md-4 offset-md-9">
+                        
+                        <button (click)="guardarObservacionCodeudor()" class="btn btn-success conti">Guardar Observaciones</button>
+                    </div>
+                    <hr>
+                    <h5>Referencias</h5>
+                    <hr>
+                    <h6>Comerciales:</h6>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombres</th>
+                                        <th>Telefono</th>
+                                        <th>Referencias</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr *ngFor="let rc of codeudor.referencias_comerciales;let i = index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{rc.nombre}}</td>
+                                        <td>{{rc.telefono}}</td>
+                                        <td><textarea name='referencia_comercial{{i+1}}' required
+                                                [(ngModel)]="referencias_comerciales_codeudor.observacion" id=""
+                                                cols="30" rows="2" class="form-control"></textarea></td>
+                                        <td><button (click)="guardarReferenciasComercialesCodeudor()" class="btn btn-success conti">Guardar
+                                                Referencia</button></td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                    <h6>Personales:</h6>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombres</th>
+                                        <th>Telefono</th>
+                                        <th>Referencias</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let rc of codeudor.referencias_personales;let i = index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{rc.nombre}}</td>
+                                        <td>{{rc.telefono}}</td>
+                                        <td><textarea name='referencia_comercial{{i+1}}' [(ngModel)]="referencias_personales_codeudor.observacion" id="" cols="30" rows="2" required
+                                                class="form-control"></textarea></td>
+                                        <td><button (click)="guardarReferenciasPersonalesCodeudor()" class="btn btn-success conti">Guardar
+                                                Referencia</button></td>
+                                    </tr>
+                                   
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <hr>
+                    <h5>Cedula Ciudadania</h5>
+
+                    <div class="row mb-3 p-5">
+                        <div class="col-md-12 ">
+
+                            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
+                                        class="active" style="background-color: #960010;" aria-current="true"
+                                        aria-label="Slide 1"></button>
+                                    <button type="button" style="background-color: #960010;"
+                                        data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                    
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active" data-bs-interval="10000">
+                                        <img #frente src="..." class="d-block w-100" alt="..." width="400px" height="500px">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5 style="color: #960010;">Frente Cedula</h5>
+
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item" data-bs-interval="10000">
+                                        <img #respaldo src="..." class="d-block w-100" width="400px" height="500px">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5 style="color: #960010;">Respaldo Cedula</h5>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Anterior</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Siguiente</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
                 <hr>
+
                 <div class="row">
                     <div class="col-md-3 offset-md-9 col-sm-3  offset-sm-9">
 
-                        <button class="btn btn-primary conti">Guardar y Continuar</button>
+                        <button (click)="enviarReferenciasCodeudor()" class="btn btn-primary conti">Guardar y Continuar</button>
 
                     </div>
                 </div>
-            </form>
+            </div>
+
         </div>
-        
     </div>
-</div>
