@@ -38,6 +38,7 @@ import { VerCreditosAnalistaComponent } from './pages/analistas/ver-creditos-ana
 import { EstudioCompradorComponent } from './pages/analistas/analisis-credito/estudio-comprador/estudio-comprador.component';
 import { EstudioCodeudorComponent } from './pages/analistas/analisis-credito/estudio-codeudor/estudio-codeudor.component';
 import { AutorizacionesComponent } from './pages/analistas/analisis-credito/autorizaciones/autorizaciones.component';
+import { CreditoAnalizadoComponent } from './pages/analistas/credito-analizado/credito-analizado.component';
 
 
 
@@ -74,6 +75,7 @@ import { AutorizacionesComponent } from './pages/analistas/analisis-credito/auto
     EstudioCompradorComponent,
     EstudioCodeudorComponent,
     AutorizacionesComponent,
+    CreditoAnalizadoComponent,
     
    
   ],

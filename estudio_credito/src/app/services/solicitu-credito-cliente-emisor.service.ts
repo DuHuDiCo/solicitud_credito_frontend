@@ -19,6 +19,7 @@ export class SolicituCreditoClienteEmisorService {
     return this.solicitudId;
   }
 
+  
   public getvalidButtoms(){
     return this.validButtoms;
   }

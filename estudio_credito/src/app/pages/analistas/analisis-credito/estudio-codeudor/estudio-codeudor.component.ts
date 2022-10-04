@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { AnalistaEmisorService } from 'src/app/services/analista-emisor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-estudio-codeudor',
@@ -15,6 +17,26 @@ export class EstudioCodeudorComponent implements OnInit {
   solicitudId:any;
 
   base:any = "data:image/png;base64,"
+
+
+  @ViewChild("btn_observacion_codeudor")
+  ObserCod!: ElementRef<HTMLImageElement>;
+  @ViewChild("txt_observacion_codeudor")
+  txtObserCod!: ElementRef<HTMLImageElement>;
+
+
+  
+
+  @ViewChild("txtComercialCod")
+  txtComercial!: ElementRef<HTMLImageElement>;
+  @ViewChild("btnComercialCod")
+  btnComercial!: ElementRef<HTMLImageElement>;
+
+  @ViewChild("txtPersonalCod")
+  txtPersonal!: ElementRef<HTMLImageElement>;
+  @ViewChild("btnPersonalCod")
+  btnPersonal!: ElementRef<HTMLImageElement>;
+
   
   codeudor:any = {
     "id":'',
@@ -79,7 +101,7 @@ export class EstudioCodeudorComponent implements OnInit {
     "observacion":''
   }
 
-  constructor(private emisor:AnalistaEmisorService, private render2:Renderer2, private router:Router) { }
+  constructor(private emisor:AnalistaEmisorService, private toast:NgToastService,private render2:Renderer2, private router:Router) { }
 
   ngOnInit(): void {
     this.solicitudId = this.emisor.getSolicitudId();
@@ -106,19 +128,89 @@ export class EstudioCodeudorComponent implements OnInit {
   } 
 
   public guardarObservacionCodeudor(){
-    this.emisor.setObservacionCodeudor(this.observacion_codeudor);
+    if (this.observacion_codeudor == '' || this.observacion_codeudor == null) {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo observaciones esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+    } else {
+      this.emisor.setObservacionCodeudor(this.observacion_codeudor);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Datos Guardados Exitosamente',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      var button = this.ObserCod.nativeElement;
+      var txtObse = this.txtObserCod.nativeElement;
+      this.render2.setAttribute(button, 'disabled', 'true')
+      this.render2.setAttribute(txtObse, 'disabled', 'true')
+    }
+    
   }
 
   public guardarReferenciasComercialesCodeudor(){
-    this.referencias_comerciales.push(this.referencias_comerciales_codeudor);
+    if (this.referencias_comerciales_codeudor.observacion  == '' || this.referencias_comerciales_codeudor.observacion == null) {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo referencias comerciales esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+    } else {
+      this.referencias_comerciales.push(this.referencias_comerciales_codeudor);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Datos Guardados Exitosamente',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      var button = this.txtComercial.nativeElement;
+      var txtObse = this.btnComercial.nativeElement;
+      this.render2.setAttribute(button, 'disabled', 'true')
+      this.render2.setAttribute(txtObse, 'disabled', 'true')
+    }
+    
   }
 
   public guardarReferenciasPersonalesCodeudor(){
-    this.referencias_personales.push(this.referencias_personales_codeudor);
+    if (this.referencias_personales_codeudor.observacion  == '' || this.referencias_personales_codeudor.observacion == null) {
+      this.toast.error({
+        detail: "Error",
+        summary: "el campo referencias personales esta vacio",
+        position: "tr",
+        duration: 3500
+      })
+    } else {
+      this.referencias_personales.push(this.referencias_personales_codeudor);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Datos Guardados Exitosamente',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      var button = this.txtPersonal.nativeElement;
+      var txtObse = this.btnPersonal.nativeElement;
+      this.render2.setAttribute(button, 'disabled', 'true')
+      this.render2.setAttribute(txtObse, 'disabled', 'true')
+    }
+    
   }
 
   public enviarReferenciasCodeudor(){
     this.emisor.setReferenciasCodeudor(this.referencias_comerciales, this.referencias_personales);
     this.router.navigate(['/analista/solicitud/'+this.solicitudId+'/estudio-autorizaciones']);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Datos Guardados Exitosamente',
+      showConfirmButton: false,
+      timer: 2000
+    })
   }
 }

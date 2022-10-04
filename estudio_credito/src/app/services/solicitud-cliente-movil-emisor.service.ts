@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import Swal from 'sweetalert2';
 import { SolicitudClienteMovilService } from './solicitud-cliente-movil.service';
 
 @Injectable({
@@ -149,6 +150,8 @@ export class SolicitudClienteMovilEmisorService {
     
   }
 
+
+
   public print(){
     console.log(this.solicitudCredito);
   }
@@ -177,8 +180,7 @@ export class SolicitudClienteMovilEmisorService {
     this.solicitudCredito.referencias_comerciales.referencias_comerciales_codeudor = this.RefComerCodeudor;
     this.solicitudCredito.referencias_personales.referencias_personales_comprador = this.RefPersoComprador;
     this.solicitudCredito.referencias_personales.referencias_personales_codeudor = this.RefPersoCodeudor;
-    this.print();
-    this.guardarSolicitud();
+    
 
     
   }
@@ -187,10 +189,44 @@ export class SolicitudClienteMovilEmisorService {
   public guardarSolicitud(){
     this.solicitudService.enviarSolicitud(this.solicitudCredito).subscribe(
       (data:any) =>{
-        console.log(data);
+       
       },(error:any)=>{
         console.log(error);
       }
     )
   }
+
+  public getSolicitudAnalista(){
+    return this.solicitudCredito;
+  }
+
+  public getCedulaCliente(){
+    return this.cliente.cedula
+  }
+
+  public getCedulaCodeudor(){
+    return this.codeudor.cedula
+  }
+
+  public getReferenciasComercialesCliente(){
+    return this.solicitudCredito.referencias_comerciales.referencias_comerciales_comprador;
+  }
+
+  
+  public getReferenciasComercialesCodeudor(){
+    return this.solicitudCredito.referencias_comerciales.referencias_comerciales_codeudor;
+  }
+
+  
+  public getReferenciasPersonalesCliente(){
+    return this.solicitudCredito.referencias_personales.referencias_personales_comprador;
+  }
+
+  
+  public getReferenciasPersonalesCodeudor(){
+    return this.solicitudCredito.referencias_personales.referencias_personales_codeudor;
+  }
+    
+    
+
 }

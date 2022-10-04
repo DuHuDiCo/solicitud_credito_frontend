@@ -131,13 +131,13 @@
                     <label class="form-label" for="">Observaciones:</label>
                     <div class="col-md-12">
 
-                        <textarea name="obsevaciones_comprador" [(ngModel)]="obsevaciones_comprador" class="form-control" id="" cols="130"
+                        <textarea name="obsevaciones_comprador" #txt_observacion_comprador [(ngModel)]="obsevaciones_comprador" class="form-control" id="" cols="130"
                             rows="10" required></textarea>
 
                     </div>
                     <div class="col-md-4 offset-md-9">
 
-                        <button (click)="guardarObservacionCliente()" class="btn btn-success conti">Guardar Observaciones</button>
+                        <button (click)="guardarObservacionCliente()" #observacion_comprador class="btn btn-success conti">Guardar Observaciones</button>
                     </div>
                     <hr>
                     <h5>Referencias</h5>
@@ -161,10 +161,10 @@
                                         <td>{{i+1}}</td>
                                         <td>{{rc.nombre}}</td>
                                         <td>{{rc.telefono}}</td>
-                                        <td><textarea name='referencia_comercial{{i+1}}' required
+                                        <td><textarea name='referencia_comercial{{i+1}}' required #txtComercial
                                                 [(ngModel)]="referencias_comerciales_cliente.observacion" id=""
                                                 cols="30" rows="2" class="form-control"></textarea></td>
-                                        <td><button (click)="guardarReferenciasComercialesCliente()" class="btn btn-success conti">Guardar
+                                        <td><button (click)="guardarReferenciasComercialesCliente()" #btnComercial class="btn btn-success conti">Guardar
                                                 Referencia</button></td>
                                     </tr>
 
@@ -192,9 +192,9 @@
                                         <td>{{i+1}}</td>
                                         <td>{{rc.nombre}}</td>
                                         <td>{{rc.telefono}}</td>
-                                        <td><textarea name='referencia_comercial{{i+1}}' [(ngModel)]="referencias_personales_cliente.observacion" id="" cols="30" rows="2" required
+                                        <td><textarea name='referencia_comercial{{i+1}}' #txtPersonal [(ngModel)]="referencias_personales_cliente.observacion" id="" cols="30" rows="2" required
                                                 class="form-control"></textarea></td>
-                                        <td><button (click)="guardarReferenciasPersonalesCliente()" class="btn btn-success conti">Guardar
+                                        <td><button (click)="guardarReferenciasPersonalesCliente()" #btnPersonal class="btn btn-success conti">Guardar
                                                 Referencia</button></td>
                                     </tr>
                                    

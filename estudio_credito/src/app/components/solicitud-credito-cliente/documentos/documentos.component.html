@@ -8,13 +8,13 @@
             <h5>Comprador</h5>
             <div class="col-md-12">
                 <label for="" class="form-label">Cedula Ciudadania: </label>
-                <input  type="file" name="frente" (change)="capturarFrenteCedulaCliente($event)"
+                <input type="file" name="frente" (change)="capturarFrenteCedulaCliente($event)"
                     class="form-control d-block d-sm-block d-md-none" capture="camera">
                 <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
                     <p>Por favor debes tomar una foto de la cedula ciudadania por el frente.
                 </div>
 
-                <input type="file"  name="respaldo" (change)="capturarRespaldoCedulaCliente($event)"
+                <input type="file" name="respaldo" (change)="capturarRespaldoCedulaCliente($event)"
                     class="form-control d-block d-sm-block d-md-none" capture="camera">
                 <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
                     <p>Por favor debes tomar una foto de la cedula ciudadania por el Respaldo.
@@ -43,14 +43,14 @@
             </div>
             <div class="col-md-12">
                 <label for="" class="form-label">Cedula Ciudadania: </label>
-                <input type="file"  name="frente" (change)="capturarFrenteCedulaCodeudor($event)"
+                <input type="file" name="frente" (change)="capturarFrenteCedulaCodeudor($event)"
                     class="form-control d-block d-sm-block d-md-none" capture="camera">
                 <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
                     <p>Por favor debes tomar una foto de la cedula ciudadania por el frente.
                 </div>
 
-                <input type="file" class="form-control d-block d-sm-block d-md-none"  (change)="capturarRespaldoCedulaCodeudor($event)"
-                     name="respaldo" capture="camera">
+                <input type="file" class="form-control d-block d-sm-block d-md-none"
+                    (change)="capturarRespaldoCedulaCodeudor($event)" name="respaldo" capture="camera">
                 <div id="emailHelp" class="form-text d-block d-sm-block d-md-none">
                     <p>Por favor debes tomar una foto de la cedula ciudadania por el Respaldo.
                 </div>
@@ -71,15 +71,18 @@
                 <div class="form-check form-switch mt-3 border border-1 bg-light ">
                     <input [checked]="false" [(ngModel)]="docsMovil.dataCredito" name="dataCredito"
                         class="form-check-input check" type="checkbox" id="">
-                    <p>Autorizo expresamente a GMJ HOGAR S.A.S. NIT. 901.056.810-9. Para que la información suministrada
-                        en el presente documento,
-                        que tiene carácter estrictamente personal y confidencial, sea consultada o verificada con
-                        terceras personas, incluyendo
-                        los bancos o bases de datos; igualmente para que la misma sea usada y puesta en circulación con
-                        fines únicamente comerciales.
-                        También autorizo expresamente para que encaso de incumplimiento de la(s) obligación(es), sea
-                        reportado al
-                        Banco de Datos de Fenalco(Procredito) o a cualquier otro.
+                    <p>Autorizo de manera previa, expresa, informada e inequívoca a GMJ HOGAR S.A.S., o a quien
+                        represente sus derechos,
+                        u ostente en el futuro la calidad de acreedor de las obligaciones a cargo del cliente, para
+                        consultar,
+                        analizar el riesgo crediticio, realizar reportes positivos y/o negativos, procesar, solicitar y
+                        divulgar toda información referente a mi comportamiento comercial,
+                        financiero y crediticio, manejo de cuenta (s) corriente (s) bancaria (s) y en general,
+                        cumplimiento de obligaciones, ante cualquier operador de información,
+                        incluyendo, pero sin limitarse a: i) centrales de riesgo legalmente constituidas
+                        ii) agencias de información comercial y, iii) demás administradoras de bases de datos
+                        comerciales, financieras y crediticias.
+                        La presente autorización se extiende a las operadoras de información.
                     </p>
                 </div>
             </div>
@@ -104,6 +107,9 @@
                         Sección</button>
                     <button *ngIf="!valid" (click)="enviarSolicitud()"
                         class="btn btn-primary conti d-none d-sm-none d-md-block">Guardar Todo y
+                        Enviar</button>
+                    <button *ngIf="!valid" (click)="enviarSolicitudMovil()"
+                        class="btn btn-primary conti d-block d-sm-block d-md-none">Guardar Todo y
                         Enviar</button>
                 </div>
             </div>

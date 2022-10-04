@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnalistaEmisorService } from 'src/app/services/analista-emisor.service';
 import { AnalistasService } from 'src/app/services/analistas.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ver-creditos-analista',
@@ -33,16 +34,31 @@ export class VerCreditosAnalistaComponent implements OnInit {
 
   public obtenerSolicitudById(id:any){
     this.emisor.setSolicitudId(id);
-    this.analistaService.obtenerSolicitudById(id).subscribe(
-      (data:any)=>{
-        this.solicitud = data;
-        this.emisor.setSolicitud(this.solicitud);
-        this.router.navigate(['analista/solicitud/'+id+'/estudio-comprador']);
-        
-      },(error:any)=>{
-        console.log(error);
+    Swal.fire({
+      title: '¿Quieres Estudiar el Credito?',
+      showCancelButton: true,
+      showConfirmButton: true,
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar',
+      confirmButtonColor:'#960010',
+      icon: 'info'
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+        this.analistaService.obtenerSolicitudById(id).subscribe(
+          (data:any)=>{
+            this.solicitud = data;
+            this.emisor.setSolicitud(this.solicitud);
+            this.router.navigate(['analista/solicitud/'+id+'/estudio-comprador']);
+            
+          },(error:any)=>{
+            console.log(error);
+          }
+        );
       }
-    );
+    })
+
+
+    
   }
 
 }

@@ -16,6 +16,7 @@ import { ViewCreditosComponent } from './pages/admin/view-creditos/view-creditos
 import { AutorizacionesComponent } from './pages/analistas/analisis-credito/autorizaciones/autorizaciones.component';
 import { EstudioCodeudorComponent } from './pages/analistas/analisis-credito/estudio-codeudor/estudio-codeudor.component';
 import { EstudioCompradorComponent } from './pages/analistas/analisis-credito/estudio-comprador/estudio-comprador.component';
+import { CreditoAnalizadoComponent } from './pages/analistas/credito-analizado/credito-analizado.component';
 import { DashboardAnalistasComponent } from './pages/analistas/dashboard-analistas/dashboard-analistas.component';
 import { VerCreditosAnalistaComponent } from './pages/analistas/ver-creditos-analista/ver-creditos-analista.component';
 
@@ -55,6 +56,10 @@ const routes: Routes = [
       {
         path:'solicitud/:solicitudId/estudio-autorizaciones',
         component:AutorizacionesComponent
+      },
+      {
+        path:'solicitud/credito-analizado',
+        component:CreditoAnalizadoComponent
       }
       
     ]
@@ -117,6 +122,7 @@ const routes: Routes = [
     ]
 
   },
+ 
   {
     path: 'success',
     component: SolicitudCreadaComponent,

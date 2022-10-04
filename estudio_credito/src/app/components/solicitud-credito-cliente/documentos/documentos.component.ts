@@ -35,23 +35,23 @@ export class DocumentosComponent implements OnInit {
     "foto": {}
   }
 
-  docsMovil:any={
+  docsMovil: any = {
     "dataCredito": false,
     "datosPersonales": false,
     "cedula_ciudadania_comprador": {
-      "frente_cedula":'',
-      "respaldo_cedula":''
+      "frente_cedula": '',
+      "respaldo_cedula": ''
     },
     "cedula_ciudadania_codeudor": {
-      "frente_cedula":'',
-      "respaldo_cedula":''
+      "frente_cedula": '',
+      "respaldo_cedula": ''
     },
     "foto": {}
   }
 
   valid = true;
 
-  constructor(private emisor: SolicituCreditoClienteEmisorService, private emisorMovil:SolicitudClienteMovilEmisorService,private sanitizer:DomSanitizer,private router: Router, private toast: NgToastService, private credito: CreditoService, private solicitudCredito: CreditoService, private renderer2: Renderer2, @Inject(PLATFORM_ID) private _platform: Object) { }
+  constructor(private emisor: SolicituCreditoClienteEmisorService, private emisorMovil: SolicitudClienteMovilEmisorService, private sanitizer: DomSanitizer, private router: Router, private toast: NgToastService, private credito: CreditoService, private solicitudCredito: CreditoService, private renderer2: Renderer2, @Inject(PLATFORM_ID) private _platform: Object) { }
 
   ngOnInit(): void {
 
@@ -138,44 +138,44 @@ export class DocumentosComponent implements OnInit {
   }
 
 
-  public capturarFrenteCedulaCliente(event:any){
+  public capturarFrenteCedulaCliente(event: any) {
     var archivo = event.target.files[0];
-    this.extraerBase64(archivo).then((imagen:any) =>{
+    this.extraerBase64(archivo).then((imagen: any) => {
       this.docsMovil.cedula_ciudadania_comprador.frente_cedula = imagen.base;
     })
   }
 
-  public capturarRespaldoCedulaCliente(event:any){
+  public capturarRespaldoCedulaCliente(event: any) {
     var archivo = event.target.files[0];
-    this.extraerBase64(archivo).then((imagen:any) =>{
+    this.extraerBase64(archivo).then((imagen: any) => {
       this.docsMovil.cedula_ciudadania_comprador.respaldo_cedula = imagen.base;
     })
   }
 
-  public capturarFrenteCedulaCodeudor(event:any){
+  public capturarFrenteCedulaCodeudor(event: any) {
     var archivo = event.target.files[0];
-    this.extraerBase64(archivo).then((imagen:any) =>{
+    this.extraerBase64(archivo).then((imagen: any) => {
       this.docsMovil.cedula_ciudadania_codeudor.frente_cedula = imagen.base;
     })
   }
 
-  public capturarRespaldoCedulaCodeudor(event:any){
+  public capturarRespaldoCedulaCodeudor(event: any) {
     var archivo = event.target.files[0];
-    this.extraerBase64(archivo).then((imagen:any) =>{
+    this.extraerBase64(archivo).then((imagen: any) => {
       this.docsMovil.cedula_ciudadania_codeudor.respaldo_cedula = imagen.base;
     })
   }
 
-  public capturarFoto(event:any){
+  public capturarFoto(event: any) {
     var archivo = event.target.files[0];
-    this.extraerBase64(archivo).then((imagen:any) =>{
+    this.extraerBase64(archivo).then((imagen: any) => {
       this.docsMovil.foto = imagen.base;
     })
   }
 
 
 
-  public extraerBase64 = async ($event: any) => new Promise((resolve, reject):any => {
+  public extraerBase64 = async ($event: any) => new Promise((resolve, reject): any => {
     try {
       const unsafeImg = window.URL.createObjectURL($event);
       const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
@@ -197,8 +197,96 @@ export class DocumentosComponent implements OnInit {
     }
   })
 
-  public guardarSeccionMovil(){
-    this.emisorMovil.guardarDocs(this.docsMovil);
+  public guardarSeccionMovil() {
+
+    if (this.docsMovil.dataCredito == false) {
+      this.toast.error({
+        detail: "Error",
+        summary: "la autorizacion de data credito esta vacia",
+        position: "tr",
+        duration: 3500
+      })
+    }
+
+    if (this.docsMovil.datosPersonales == false) {
+      this.toast.error({
+        detail: "Error",
+        summary: "la autorizacion de datos personales esta vacia",
+        position: "tr",
+        duration: 3500
+      })
+    }
+
+    if (this.docsMovil.cedula_ciudadania_comprador.frente_cedula == '' && this.docsMovil.cedula_ciudadania_comprador.respaldo_cedula == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "La cedula del comprador esta vacia",
+        position: "tr",
+        duration: 3500
+      })
+    }
+
+    if (this.docsMovil.cedula_ciudadania_codeudor.frente_cedula == '' && this.docsMovil.cedula_ciudadania_codeudor.respaldo_cedula == '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "La cedula del codeudor esta vacia",
+        position: "tr",
+        duration: 3500
+      })
+    }
+
+    if (Object.keys(this.docsMovil.foto).length == 0) {
+      this.toast.error({
+        detail: "Error",
+        summary: "La foto del comprador esta vacia",
+        position: "tr",
+        duration: 3500
+      })
+    } else {
+      this.emisorMovil.guardarDocs(this.docsMovil);
+      this.valid = false;
+
+
+    }
+
+
+
+  }
+
+
+  public enviarSolicitudMovil() {
+
+
+    if (this.emisorMovil.getCedulaCliente() === '') {
+      this.toast.error({
+        detail: "Error",
+        summary: "Faltan Datos en los Anteriores Apartados",
+        position: "tr",
+        duration: 3500
+      })
+    } else {
+      if (this.emisorMovil.getCedulaCodeudor() == '') {
+        this.toast.error({
+          detail: "Error",
+          summary: "Faltan Datos en los Anteriores Apartados",
+          position: "tr",
+          duration: 3500
+        })
+      } else {
+        this.emisorMovil.guardarSolicitud();
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Datos Guardados Exitosamente',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        this.router.navigate(['/success'])
+      }
+
+    }
+
+    
   }
 
 

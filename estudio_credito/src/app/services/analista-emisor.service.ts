@@ -7,121 +7,143 @@ import { AnalistasService } from './analistas.service';
 })
 export class AnalistaEmisorService {
 
-  solicitud={
-    "cliente":{},
-    "codeudor":{},
-    "documentos":{},
-    "estado":'',
-    "fecha":'',
-    "ventas":[]
+  solicitud = {
+    "cliente": {},
+    "codeudor": {},
+    "documentos": {},
+    "estado": '',
+    "fecha": '',
+    "ventas": []
   }
 
-  solicitudAnalista:any={
-    "id":'',
-    "cliente":{
-      "observacion_cliente":'',
-      "referencias_comerciales_cliente":{
-        
+  solicitudAnalista: any = {
+    "id": '',
+    "cliente": {
+      "observacion_cliente": '',
+      "referencias_comerciales_cliente": {
+
       },
-      "referencias_personales_cliente":{}
+      "referencias_personales_cliente": {}
 
     },
-    "codeudor":{
-      "observacion_codeudor":'',
-      "referencias_comerciales_codeudor":{
-        
+    "codeudor": {
+      "observacion_codeudor": '',
+      "referencias_comerciales_codeudor": {
+
       },
-      "referencias_personales_codeudor":{}
+      "referencias_personales_codeudor": {}
     },
-    "analisis":{
-      "usuario":'',
-      "observaciones":''
+    "analisis": {
+      "usuario": '',
+      "observaciones": ''
     },
-    "estado":''
-    
+    "estado": ''
+
   }
 
-  solicitudId:any;
+  solicitudId: any;
 
-  constructor(private router:Router, private analistaService:AnalistasService) { }
+  constructor(private router: Router, private analistaService: AnalistasService) { }
 
 
-  public setSolicitud(soli:any){
+  public setSolicitud(soli: any) {
     this.solicitud = soli;
     console.log(this.solicitud);
   }
 
-  public getSolicitud(){
+  public getSolicitud() {
     return this.solicitud;
   }
 
 
-  public setSolicitudId(id:any){
+  public setSolicitudId(id: any) {
     this.solicitudId = id;
   }
 
-  public getSolicitudId(){
+  public getSolicitudId() {
     this.solicitudAnalista.id = this.solicitudId;
     return this.solicitudId;
   }
 
-  public getClienteSolicitud(){
+  public getClienteSolicitud() {
     return this.solicitud.cliente;
   }
 
-  public getDocumentos(){
+  public getDocumentos() {
     return this.solicitud.documentos;
   }
 
 
-  public getCodeudor(){
+  public getCodeudor() {
     return this.solicitud.codeudor;
   }
 
-  public setObservacionCliente(obs:any){
+  public setObservacionCliente(obs: any) {
     this.solicitudAnalista.cliente.observacion_cliente = obs;
   }
 
-  public setObservacionCodeudor(obs:any){
+  public setObservacionCodeudor(obs: any) {
     this.solicitudAnalista.codeudor.observacion_codeudor = obs;
   }
-  
 
-  public setReferencias(comer:any[], pers:any[]){
+
+  public setReferencias(comer: any[], pers: any[]) {
     this.solicitudAnalista.cliente.referencias_comerciales_cliente = comer;
     this.solicitudAnalista.cliente.referencias_personales_cliente = pers;
-    
+
     console.log(this.solicitudAnalista);
 
   }
 
 
-  public setReferenciasCodeudor(comer:any[], pers:any[]){
-    this.solicitudAnalista.codeudor.referencias_comerciales_codeudor =comer;
-    this.solicitudAnalista.codeudor.referencias_personales_codeudor =pers;
+  public setReferenciasCodeudor(comer: any[], pers: any[]) {
+    this.solicitudAnalista.codeudor.referencias_comerciales_codeudor = comer;
+    this.solicitudAnalista.codeudor.referencias_personales_codeudor = pers;
     console.log(this.solicitudAnalista);
   }
 
 
-  public guardarSolicitudAnalista(){
+  public guardarSolicitudAnalista() {
     this.analistaService.guardarSolicitudAnalista(this.solicitudAnalista).subscribe(
-      (data:any)=>{
+      (data: any) => {
         console.log(data);
-      },(error:any)=>{
+      }, (error: any) => {
         console.log(error);
       }
     );
   }
 
-  public guardarDatosAnalisis(id:any, obser:any){
+  public getObservacionesComprador() {
+    return this.solicitudAnalista.cliente.observacion_cliente;
+  }
+
+  public guardarDatosAnalisis(id: any, obser: any) {
     this.solicitudAnalista.analisis.usuario = id;
     this.solicitudAnalista.estado = obser.estado;
     this.solicitudAnalista.analisis.observaciones = obser.observacion;
   }
 
- 
+  public getReferenciasComercialesCliente() {
+    return this.solicitudAnalista.cliente.referencias_comerciales_cliente;
+  }
 
-  
+  public getReferenciasComercialesCodeudor() {
+    return this.solicitudAnalista.codeudor.referencias_comerciales_codeudor;
+  }
 
-  
+  public getReferenciasPersonalesCliente() {
+    return this.solicitudAnalista.cliente.referencias_personales_cliente;
+  }
+
+  public getReferenciasPersonalesCodeudor() {
+    return this.solicitudAnalista.codeudor.referencias_personales_codeudor;
+  }
+
+
+
+
+
+
+
+
 }
