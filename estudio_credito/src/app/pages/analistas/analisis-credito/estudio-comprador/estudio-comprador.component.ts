@@ -116,7 +116,7 @@ export class EstudioCompradorComponent implements OnInit {
     this.solicitudId = this.emisor.getSolicitudId();
     this.cliente = this.emisor.getClienteSolicitud();
     this.documentos = this.emisor.getDocumentos();
-    console.log(this.cliente);
+    
 
     this.frente = this.base + this.cliente.cedula_ciudadania_cliente.frente_cedula;
     this.respaldo = this.base + this.cliente.cedula_ciudadania_cliente.respaldo_cedula;

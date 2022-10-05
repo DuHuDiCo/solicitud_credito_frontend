@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 
     this.loginService.generateToken(this.usuario).subscribe(
       (data: any) => {
-        console.log(data);
+        
         this.loginService.loginUser(data.accessToken);
 
 
@@ -82,21 +82,42 @@ export class LoginComponent implements OnInit {
         } else if (this.user.roles[0] === "ROL_MODERADOR") {
           this.router.navigate(['mod']);
           this.loginService.loginStatusSubject.next(true);
+          Swal.fire({
+            position:'top-end',
+            icon:'success',
+            title:'Inicio Sesion Exitoso',
+            showConfirmButton: false,
+            timer:2000
+          })
 
         } else if (this.user.roles[0] === "ROL_USER") {
           this.router.navigate(['user']);
           this.loginService.loginStatusSubject.next(true);
+          Swal.fire({
+            position:'top-end',
+            icon:'success',
+            title:'Inicio Sesion Exitoso',
+            showConfirmButton: false,
+            timer:2000
+          })
           
         }else if (this.user.roles[0] === "ROL_ANALISTA") {
           this.router.navigate(['analista']);
           this.loginService.loginStatusSubject.next(true); 
+          Swal.fire({
+            position:'top-end',
+            icon:'success',
+            title:'Inicio Sesion Exitoso',
+            showConfirmButton: false,
+            timer:2000
+          })
         }else {
           this.loginService.logout();
         }
 
 
       }, (error: any) => {
-        console.log(error);
+        
         this.toast.error({
           detail: "Error",
           summary: "Datos Incorrectos, Vuelva a Intentar",

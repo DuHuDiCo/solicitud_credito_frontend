@@ -9,7 +9,7 @@
                 <span class="navbar-toggler-icon"></span>
             </a>
             <form class="d-flex">
-                <a (click)="logout()" class="btn btn-lg d-none d-sm-none d-md-block"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+                <button (click)="logout()" class="btn btn-lg d-none d-sm-none d-md-block"><i class="fas fa-sign-out-alt fa-2x"></i></button>
             </form>
         </div>
 
@@ -21,7 +21,7 @@
 <div class="d-block d-sm-block d-md-none">
 
 
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div #menu class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -36,48 +36,49 @@
 
                             <ul class="nav nav-pills flex-column mb-auto ">
                                 <li class="nav-item mb-2">
-                                    <a routerLink="/admin" class="nav-link " aria-current="page">
+                                    <button routerLink="/admin" class="nav-link " data-bs-dismiss="offcanvas" aria-current="page">
                                         <svg class="bi me-2" width="16" height="16">
 
                                         </svg>
                                         Inicio
-                                    </a>
+                                    </button>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="#" class="nav-link ">
+                                    <button routerLink="/admin/view-solicitudes"  data-bs-dismiss="offcanvas" class="nav-link ">
                                         <svg class="bi me-2" width="16" height="16">
                                             <use xlink:href="#speedometer2" />
                                         </svg>
                                         Creditos
-                                    </a>
+                                    </button>
+                                   
                                 </li>
                                 <li class="mb-2">
-                                    <a href="/admin/solicitud" class="nav-link ">
+                                    <button routerLink="/admin/solicitud" data-bs-dismiss="offcanvas" class="nav-link ">
                                         <svg class="bi me-2" width="16" height="16">
                                             <use xlink:href="#table" />
                                         </svg>
                                         Crear Solicitud Credito
-                                    </a>
+                                    </button>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="#" class="nav-link ">
+                                    <button href="#" class="nav-link " data-bs-dismiss="offcanvas">
                                         <svg class="bi me-2" width="16" height="16">
                                             <use xlink:href="#grid" />
                                         </svg>
                                         Usuarios
-                                    </a>
+                                    </button>
                                 </li>
                                 <li class="mb-2">
-                                    <a href="#" class="nav-link ">
+                                    <button href="#" class="nav-link " data-bs-dismiss="offcanvas">
                                         <svg class="bi me-2" width="16" height="16">
                                             <use xlink:href="#people-circle" />
                                         </svg>
                                         Customers
-                                    </a>
+                                    </button>
                                 </li>
                             </ul>
                             <hr>
-                            <a (click)="logout()" class="btn btn-lg"><i class="fas fa-sign-out-alt fa-2x"></i></a>
+                            <button (click)="logout()" class="btn btn-lg"><i class="fas fa-sign-out-alt fa-2x"></i></button>
                         </div>
 
                     </div>

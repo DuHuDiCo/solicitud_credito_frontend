@@ -34,7 +34,7 @@ export class SolicitudComponent implements OnInit {
   public crearVentas() {
     this.venta.id = this.contador;
     this.ventas.push(this.venta);
-    console.log(this.ventas)
+    
     this.venta = {
       "id": '',
       "referencia": '',
@@ -47,7 +47,7 @@ export class SolicitudComponent implements OnInit {
   }
 
   public crearSolicitudCredito() {
-    console.log(this.ventas);
+    
     this.creditoService.crearSolicituCredito(this.ventas).subscribe(
       (data:any)=>{
         Swal.fire({
@@ -60,7 +60,7 @@ export class SolicitudComponent implements OnInit {
         this.router.navigate(['/admin/view-solicitudes']);
       }, (error:any)=>{
         Swal.fire("Error", "Error al crear la solicitud de credito", 'error');
-        console.log(error);
+        
       }
     );
   }

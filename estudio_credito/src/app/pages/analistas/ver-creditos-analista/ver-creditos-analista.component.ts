@@ -27,7 +27,7 @@ export class VerCreditosAnalistaComponent implements OnInit {
         this.solicitudes = data;
         
       },(error:any)=>{
-        console.log(error);
+        
       }
     )
   }
@@ -51,7 +51,7 @@ export class VerCreditosAnalistaComponent implements OnInit {
             this.router.navigate(['analista/solicitud/'+id+'/estudio-comprador']);
             
           },(error:any)=>{
-            console.log(error);
+            
           }
         );
       }

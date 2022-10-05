@@ -24,7 +24,7 @@
                                     <td>{{valores_totales[i]}}</td>
                                     <td>{{cuotas[i]}}</td>
                                     <td><a href={{links[i]}}>{{links[i]}}</a></td>
-                                    <td><button class="btn btn-danger eli"><i class="fas fa-trash"></i></button></td>
+                                    <td><button (click)="eliminarSolicitud(s.id)" class="btn btn-danger eli"><i class="fas fa-trash"></i></button></td>
                                 </tr>
                             </tbody>
                         </table>

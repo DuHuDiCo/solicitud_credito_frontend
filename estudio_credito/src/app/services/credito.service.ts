@@ -178,7 +178,7 @@ export class CreditoService {
   public guardarRespaldoCedula(cedula: any, ) {
     this.cedula_ciudadania_comprador.respaldo_cedula = cedula;
     
-    console.log(this.cedula_ciudadania_comprador);
+    
     this.documentos.cedula_ciudadania_comprador = this.cedula_ciudadania_comprador;
     this.cedula_ciudadania_comprador = {
       frente_cedula: '',
@@ -204,7 +204,7 @@ export class CreditoService {
   public guardarRespaldoCedulaCodeudor(cedula: any, ) {
     this.cedula_ciudadania_codeudor.respaldo_cedula = cedula;
     
-    console.log(this.cedula_ciudadania_comprador);
+    
     this.documentos.cedula_ciudadania_codeudor = this.cedula_ciudadania_codeudor;
     this.cedula_ciudadania_comprador = {
       frente_cedula: '',
@@ -238,15 +238,15 @@ export class CreditoService {
   public guardarReferenciasComerciales(RComprador: any[], RCodeudor: any[]) {
     this.RefComerComprador = RComprador;
     this.RefComerCodeudor = RCodeudor;
-    console.log(this.RefComerComprador)
-    console.log(this.RefComerCodeudor)
+    
+    
   }
 
   public guardarReferecenciasPersonales(RComprador: any[], RCodeudor: any[]) {
     this.RefPersoComprador = RComprador;
     this.RefPersoCodeudor = RCodeudor;
-    console.log(this.RefPersoComprador)
-    console.log(this.RefPersoCodeudor)
+    
+    
   }
 
   public crearSolicitudCredito() {
@@ -286,11 +286,17 @@ export class CreditoService {
     this.solicitudCredito.referencias_personales.referencias_personales_comprador = this.RefPersoComprador;
     this.solicitudCredito.referencias_personales.referencias_personales_codeudor = this.RefPersoCodeudor;
     
-    console.log(this.solicitudCredito)
+    
     
   }
 
   public enviarSolicitud(){
     return this.http.post(`${baseUrl}/solicitud-cliente/`, this.solicitudCredito);
+  }
+
+
+
+  public eliminarSolicitud(id:any){
+    return this.http.get(`${baseUrl}/solicitud-vendedor/`+id);
   }
 }

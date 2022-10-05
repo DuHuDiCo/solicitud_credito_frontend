@@ -153,7 +153,7 @@ export class SolicitudClienteMovilEmisorService {
 
 
   public print(){
-    console.log(this.solicitudCredito);
+    
   }
 
   public guardarReferenciasComerciales(comerCom:any[], comerCod:any[]){
@@ -191,7 +191,7 @@ export class SolicitudClienteMovilEmisorService {
       (data:any) =>{
        
       },(error:any)=>{
-        console.log(error);
+        
       }
     )
   }

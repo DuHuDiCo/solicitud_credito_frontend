@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreditoService } from 'src/app/services/credito.service';
 import baseUrl from 'src/app/services/helper';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-creditos',
@@ -12,7 +13,7 @@ export class ViewCreditosComponent implements OnInit {
   solicitudes: any = [];
   valores_totales: any = []
   links: any = []
-  
+
 
 
 
@@ -40,7 +41,7 @@ export class ViewCreditosComponent implements OnInit {
     this.creditoService.obtenerSolicitudesCredito().subscribe(
       (data: any) => {
         this.solicitudes = data;
-        console.log(this.solicitudes)
+        
         this.obtenerValorTotal();
 
       }
@@ -50,53 +51,71 @@ export class ViewCreditosComponent implements OnInit {
   public obtenerValorTotal() {
     let valor = 0;
     let i = 0;
-    
+
     this.solicitudes.forEach((soli: any) => {
       let link = this.generarLink(soli.id);
       this.links.push(link);
 
       if (soli.ventas.length > 1) {
-        let v:any = []
-        soli.ventas.forEach((vent:any) => {
+        let v: any = []
+        soli.ventas.forEach((vent: any) => {
           valor = valor + vent.valor_producto;
-          
+
           v.push(vent.cuotas);
-          
-          
+
+
         });
         let max = Math.max.apply(null, v);
         this.cuotas.push(max);
-        
+
       } else {
         soli.ventas.forEach((vent: any) => {
           valor = valor + vent.valor_producto;
           this.cuotas.push(vent.cuotas);
-          
+
         });
-        
+
       }
 
       this.valores_totales.push(valor);
-      
+
       valor = 0;
 
-      console.log(i);
+      
     });
 
 
 
-    console.log(this.valores_totales);
-    console.log(this.cuotas);
-    console.log(this.links);
     
+    
+    
+
 
 
   }
 
   public generarLink(id: any) {
-    let link = "http://localhost:4200/solicitud-credito/" + id
+    let link = "http://192.168.1.171:8080/#/solicitud-credito/" + id
     return link;
   }
 
+
+  public eliminarSolicitud(id: any) {
+    this.creditoService.eliminarSolicitud(id).subscribe(
+      (data: any) => {
+        this.solicitudes = this.solicitudes.filter((v: any) => v.id != id);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Solicitud Elimiada Exitosamente',
+          showConfirmButton: false,
+          timer: 2000
+        })
+      },(error:any)=>{
+        
+      }
+    );
+
+  }
 
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +9,9 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('menu') menu! :ElementRef<HTMLElement>
 
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -16,6 +19,15 @@ export class NavbarComponent implements OnInit {
 
   public logout(){
     this.loginService.logout();
-    window.location.reload();
+    Swal.fire({
+      position:'top-end',
+      icon:'success',
+      title:'Sesion Cerrada Exitosamente',
+      showConfirmButton: false,
+      timer:2000
+    })
+    this.router.navigate(['']);
   }
+
+  
 }

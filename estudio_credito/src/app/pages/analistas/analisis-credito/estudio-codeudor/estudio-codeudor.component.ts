@@ -105,7 +105,7 @@ export class EstudioCodeudorComponent implements OnInit {
 
   ngOnInit(): void {
     this.solicitudId = this.emisor.getSolicitudId();
-    console.log(this.solicitudId);
+    
     this.codeudor = this.emisor.getCodeudor();
     this.documentos = this.emisor.getDocumentos();
     

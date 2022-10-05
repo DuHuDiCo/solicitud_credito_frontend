@@ -81,7 +81,7 @@ export class RespaldoCedulaComponent implements OnInit {
 
           }
         ).catch((error) => {
-          console.log(error);
+          
         })
       this.activeCamera = true;
       this.deActivate = true;
@@ -105,7 +105,7 @@ export class RespaldoCedulaComponent implements OnInit {
     this.valid = false;
     this.canvasButtoms = true;
     this.activarCanva();
-    console.log(this.medidasCanva);
+    
   }
 
   public guardarImagen() {

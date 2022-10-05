@@ -48,7 +48,7 @@ export class AnalistaEmisorService {
 
   public setSolicitud(soli: any) {
     this.solicitud = soli;
-    console.log(this.solicitud);
+    
   }
 
   public getSolicitud() {
@@ -91,7 +91,7 @@ export class AnalistaEmisorService {
     this.solicitudAnalista.cliente.referencias_comerciales_cliente = comer;
     this.solicitudAnalista.cliente.referencias_personales_cliente = pers;
 
-    console.log(this.solicitudAnalista);
+    
 
   }
 
@@ -99,16 +99,16 @@ export class AnalistaEmisorService {
   public setReferenciasCodeudor(comer: any[], pers: any[]) {
     this.solicitudAnalista.codeudor.referencias_comerciales_codeudor = comer;
     this.solicitudAnalista.codeudor.referencias_personales_codeudor = pers;
-    console.log(this.solicitudAnalista);
+    
   }
 
 
   public guardarSolicitudAnalista() {
     this.analistaService.guardarSolicitudAnalista(this.solicitudAnalista).subscribe(
       (data: any) => {
-        console.log(data);
+        
       }, (error: any) => {
-        console.log(error);
+        
       }
     );
   }

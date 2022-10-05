@@ -141,8 +141,8 @@ export class ReferenciasPersonalesComponent implements OnInit {
 
 
   public print() {
-    console.log(this.referenciasPersonalesCliente)
-    console.log(this.referenciasPersonalesCodeudor)
+    
+    
   }
 
   public guardarYContinuar() {

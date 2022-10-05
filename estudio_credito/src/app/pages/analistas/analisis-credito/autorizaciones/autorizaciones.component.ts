@@ -72,7 +72,7 @@ export class AutorizacionesComponent implements OnInit {
 
   public guardarDatosAnalizador(){
     let usuario = this.loginService.getUser();
-    console.log(this.determinacion)
+    
     this.emisor.guardarDatosAnalisis(usuario.id, this.determinacion);
     this.guardarSolicitudAnalista();
   }

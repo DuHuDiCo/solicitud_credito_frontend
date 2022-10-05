@@ -81,7 +81,7 @@ export class DocumentosComponent implements OnInit {
             });
             this.router.navigate(['/success']);
           }, (error: any) => {
-            console.log(error);
+            
           }
         );
       }
@@ -104,7 +104,7 @@ export class DocumentosComponent implements OnInit {
 
     } else {
       this.docs = this.credito.getDocs();
-      console.log(this.docs);
+      
 
       if (Object.keys(this.docs.cedula_ciudadania_comprador).length == 0 || Object.keys(this.docs.cedula_ciudadania_comprador).length == 0 || this.docs.foto == null) {
         this.toast.error({

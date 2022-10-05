@@ -39,6 +39,7 @@ import { EstudioCompradorComponent } from './pages/analistas/analisis-credito/es
 import { EstudioCodeudorComponent } from './pages/analistas/analisis-credito/estudio-codeudor/estudio-codeudor.component';
 import { AutorizacionesComponent } from './pages/analistas/analisis-credito/autorizaciones/autorizaciones.component';
 import { CreditoAnalizadoComponent } from './pages/analistas/credito-analizado/credito-analizado.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -87,7 +88,9 @@ import { CreditoAnalizadoComponent } from './pages/analistas/credito-analizado/c
     NgToastModule, 
     WebcamModule
   ],
-  providers: [AuthInterceptorProviders],
+  providers: [AuthInterceptorProviders,
+    {provide:LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

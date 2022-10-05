@@ -140,8 +140,8 @@ export class ReferenciasComercialesComponent implements OnInit {
 
 
   public print() {
-    console.log(Object.keys(this.referenciasComercialesCliente).length)
-    console.log(Object.keys(this.referenciasComercialesCodeudor).length)
+    
+    
   }
 
   public guardarYContinuar() {
