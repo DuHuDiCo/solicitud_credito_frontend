@@ -90,7 +90,9 @@
                 <div class="form-check form-switch mt-3 border border-1 bg-light">
                     <input [checked]="false" [(ngModel)]="docsMovil.datosPersonales" name="datosPersonales"
                         class="form-check-input check " type="checkbox" id="">
-                    <p>Autorizo el <a href="" class="tdp">Uso y Tratamiento de Datos Personales</a>
+                    <p>Autorizo el tratamiento sobre mis datos personales, 
+                        en los términos de la <a class="tdp" [routerLink]="'/tratamiento-datos-personales'">Política de privacidad y protección de datos personales</a> y <a class="tdp" >los Términos y Condiciones.</a>
+                        
                     </p>
                 </div>
             </div>

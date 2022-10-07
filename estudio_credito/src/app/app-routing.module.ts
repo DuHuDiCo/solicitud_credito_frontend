@@ -9,6 +9,7 @@ import { ReferenciasComercialesComponent } from './components/solicitud-credito-
 import { ReferenciasPersonalesComponent } from './components/solicitud-credito-cliente/referencias-personales/referencias-personales.component';
 import { SolicitudCreadaComponent } from './components/solicitud-credito-cliente/solicitud-creada/solicitud-creada.component';
 import { SolicitudCreditoClienteComponent } from './components/solicitud-credito-cliente/solicitud-credito-cliente.component';
+import { UsoYTratamientoDatosPersonalesComponent } from './components/solicitud-credito-cliente/uso-y-tratamiento-datos-personales/uso-y-tratamiento-datos-personales.component';
 
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { SolicitudComponent } from './pages/admin/solicitud/solicitud.component';
@@ -126,6 +127,11 @@ const routes: Routes = [
   {
     path: 'success',
     component: SolicitudCreadaComponent,
+    pathMatch:'full'
+  },
+  {
+    path:'tratamiento-datos-personales',
+    component: UsoYTratamientoDatosPersonalesComponent,
     pathMatch:'full'
   }
 

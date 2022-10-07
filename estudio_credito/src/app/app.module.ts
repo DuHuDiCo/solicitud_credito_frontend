@@ -40,6 +40,7 @@ import { EstudioCodeudorComponent } from './pages/analistas/analisis-credito/est
 import { AutorizacionesComponent } from './pages/analistas/analisis-credito/autorizaciones/autorizaciones.component';
 import { CreditoAnalizadoComponent } from './pages/analistas/credito-analizado/credito-analizado.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { UsoYTratamientoDatosPersonalesComponent } from './components/solicitud-credito-cliente/uso-y-tratamiento-datos-personales/uso-y-tratamiento-datos-personales.component';
 
 
 
@@ -77,6 +78,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     EstudioCodeudorComponent,
     AutorizacionesComponent,
     CreditoAnalizadoComponent,
+    UsoYTratamientoDatosPersonalesComponent,
     
    
   ],
