@@ -41,6 +41,7 @@ import { AutorizacionesComponent } from './pages/analistas/analisis-credito/auto
 import { CreditoAnalizadoComponent } from './pages/analistas/credito-analizado/credito-analizado.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { UsoYTratamientoDatosPersonalesComponent } from './components/solicitud-credito-cliente/uso-y-tratamiento-datos-personales/uso-y-tratamiento-datos-personales.component';
+import { MensajesComponent } from './pages/admin/mensajes/mensajes.component';
 
 
 
@@ -79,6 +80,7 @@ import { UsoYTratamientoDatosPersonalesComponent } from './components/solicitud-
     AutorizacionesComponent,
     CreditoAnalizadoComponent,
     UsoYTratamientoDatosPersonalesComponent,
+    MensajesComponent,
     
    
   ],

@@ -12,6 +12,7 @@ import { SolicitudCreditoClienteComponent } from './components/solicitud-credito
 import { UsoYTratamientoDatosPersonalesComponent } from './components/solicitud-credito-cliente/uso-y-tratamiento-datos-personales/uso-y-tratamiento-datos-personales.component';
 
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { MensajesComponent } from './pages/admin/mensajes/mensajes.component';
 import { SolicitudComponent } from './pages/admin/solicitud/solicitud.component';
 import { ViewCreditosComponent } from './pages/admin/view-creditos/view-creditos.component';
 import { AutorizacionesComponent } from './pages/analistas/analisis-credito/autorizaciones/autorizaciones.component';
@@ -79,6 +80,10 @@ const routes: Routes = [
       {
         path: 'view-solicitudes',
         component: ViewCreditosComponent
+      },
+      {
+        path:'mensajes',
+        component: MensajesComponent
       }
 
     ]
