@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <form (ngSubmit)="enviarMensaje()">
+                    <input type="text" name="to" id="" class="form-control" [(ngModel)]="mensaje.to" >
+                    <textarea name="text" id="" cols="30" rows="10" class="form-control" [(ngModel)]="mensaje.text"></textarea>
+                    <button type="submit" class="btn btn-primary conti">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

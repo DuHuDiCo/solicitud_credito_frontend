@@ -12,7 +12,7 @@ import { SolicitudCreditoClienteComponent } from './components/solicitud-credito
 import { UsoYTratamientoDatosPersonalesComponent } from './components/solicitud-credito-cliente/uso-y-tratamiento-datos-personales/uso-y-tratamiento-datos-personales.component';
 
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
-import { MensajesComponent } from './pages/admin/mensajes/mensajes.component';
+
 import { SolicitudComponent } from './pages/admin/solicitud/solicitud.component';
 import { ViewCreditosComponent } from './pages/admin/view-creditos/view-creditos.component';
 import { AutorizacionesComponent } from './pages/analistas/analisis-credito/autorizaciones/autorizaciones.component';
@@ -20,6 +20,7 @@ import { EstudioCodeudorComponent } from './pages/analistas/analisis-credito/est
 import { EstudioCompradorComponent } from './pages/analistas/analisis-credito/estudio-comprador/estudio-comprador.component';
 import { CreditoAnalizadoComponent } from './pages/analistas/credito-analizado/credito-analizado.component';
 import { DashboardAnalistasComponent } from './pages/analistas/dashboard-analistas/dashboard-analistas.component';
+import { MensajesComponent } from './pages/analistas/mensajes/mensajes.component';
 import { VerCreditosAnalistaComponent } from './pages/analistas/ver-creditos-analista/ver-creditos-analista.component';
 
 

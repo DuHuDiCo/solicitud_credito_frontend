@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 
 
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
@@ -41,7 +41,9 @@ import { AutorizacionesComponent } from './pages/analistas/analisis-credito/auto
 import { CreditoAnalizadoComponent } from './pages/analistas/credito-analizado/credito-analizado.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { UsoYTratamientoDatosPersonalesComponent } from './components/solicitud-credito-cliente/uso-y-tratamiento-datos-personales/uso-y-tratamiento-datos-personales.component';
-import { MensajesComponent } from './pages/admin/mensajes/mensajes.component';
+
+
+import { MensajesComponent } from './pages/analistas/mensajes/mensajes.component';
 
 
 

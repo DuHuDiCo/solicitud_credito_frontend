@@ -17,14 +17,20 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let authReques = request;
     const token = this.loginService.getToken();
-    
-    
-    if(token != null){
+    const url = "https://api-sms.masivapp.com/send-message";
+    if(request.url == url){
       authReques = authReques.clone({
-        setHeaders:{Authorization: `Bearer ${token}`}
+        setHeaders:{Authorization: 'Basic QXBpX0pUTUY3Oi1IRERMMVlTNjc='}
       })
-      
+    }else{
+      if(token != null){
+        authReques = authReques.clone({
+          setHeaders:{Authorization: `Bearer ${token}`}
+        })
+        
+      }
     }
+   
 
     return next.handle(authReques);
   }
